@@ -1,2 +1,7 @@
-1436-lib: g++ -shared -o ./1436.dll ./lib/1436.cpp
-g++ -o main main.cpp -I./include -L. -l1436  
+lib
+g++ -shared -o ./1436.dll ./lib/1436.cpp
+g++ -shared -o ./257.dll  ./lib/257.cpp
+
+main
+g++ -o main main.cpp -I./include -L. -l1436  -l257
+g++ -o main.exe main.cpp -I./include -L. -l257 -l1436
