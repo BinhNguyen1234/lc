@@ -6,7 +6,7 @@ using namespace std;
 #ifdef __cplusplus
 extern "C"{
 #endif
-string destCity(vector<vector<string>>& path);
+  string destCity(vector<vector<string>>& path);
 #ifdef __cplusplus
 }
 #endif
