@@ -1,0 +1,7 @@
+/root/cpp/build/CMakeFiles/main.dir
+/root/cpp/build/CMakeFiles/463.dir
+/root/cpp/build/CMakeFiles/rebuild_cache.dir
+/root/cpp/build/CMakeFiles/266.dir
+/root/cpp/build/CMakeFiles/257.dir
+/root/cpp/build/CMakeFiles/edit_cache.dir
+/root/cpp/build/CMakeFiles/1436.dir

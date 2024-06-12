@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/main.dir/main.cpp.o  -o main  -Wl,-rpath,/root/cpp/build lib1436.so lib257.so lib266.so lib463.so 
