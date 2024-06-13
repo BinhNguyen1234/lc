@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,lib266.so -o lib266.so CMakeFiles/266.dir/lib/266.cpp.o 

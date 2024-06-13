@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/cpp/build/CMakeFiles /root/cpp/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /root/cpp/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/cpp/build/CMakeFiles /root/cpp/build/googletest/CMakeFiles/progress.marks
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/cpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,70 +154,102 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /root/cpp/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named gmock_main
+# Convenience name for target.
+googletest/CMakeFiles/gtest_main.dir/rule:
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : googletest/CMakeFiles/gtest_main.dir/rule
 
-# Build rule for target.
-gmock_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
-.PHONY : gmock_main
+# Convenience name for target.
+gtest_main: googletest/CMakeFiles/gtest_main.dir/rule
 
-# fast build rule for target.
-gmock_main/fast:
-	$(MAKE) -f googlemock/CMakeFiles/gmock_main.dir/build.make googlemock/CMakeFiles/gmock_main.dir/build
-.PHONY : gmock_main/fast
-
-#=============================================================================
-# Target rules for targets named gmock
-
-# Build rule for target.
-gmock: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gmock
-.PHONY : gmock
-
-# fast build rule for target.
-gmock/fast:
-	$(MAKE) -f googlemock/CMakeFiles/gmock.dir/build.make googlemock/CMakeFiles/gmock.dir/build
-.PHONY : gmock/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
 .PHONY : gtest_main
 
 # fast build rule for target.
 gtest_main/fast:
-	$(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/build
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-#=============================================================================
-# Target rules for targets named gtest
+# Convenience name for target.
+googletest/CMakeFiles/gtest.dir/rule:
+	cd /root/cpp/build && $(MAKE) -f CMakeFiles/Makefile2 googletest/CMakeFiles/gtest.dir/rule
+.PHONY : googletest/CMakeFiles/gtest.dir/rule
 
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
+# Convenience name for target.
+gtest: googletest/CMakeFiles/gtest.dir/rule
+
 .PHONY : gtest
 
 # fast build rule for target.
 gtest/fast:
-	$(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/build
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
+
+src/gtest-all.o: src/gtest-all.cc.o
+
+.PHONY : src/gtest-all.o
+
+# target to build an object file
+src/gtest-all.cc.o:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+.PHONY : src/gtest-all.cc.o
+
+src/gtest-all.i: src/gtest-all.cc.i
+
+.PHONY : src/gtest-all.i
+
+# target to preprocess a source file
+src/gtest-all.cc.i:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.i
+.PHONY : src/gtest-all.cc.i
+
+src/gtest-all.s: src/gtest-all.cc.s
+
+.PHONY : src/gtest-all.s
+
+# target to generate assembly for a file
+src/gtest-all.cc.s:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.s
+.PHONY : src/gtest-all.cc.s
+
+src/gtest_main.o: src/gtest_main.cc.o
+
+.PHONY : src/gtest_main.o
+
+# target to build an object file
+src/gtest_main.cc.o:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+.PHONY : src/gtest_main.cc.o
+
+src/gtest_main.i: src/gtest_main.cc.i
+
+.PHONY : src/gtest_main.i
+
+# target to preprocess a source file
+src/gtest_main.cc.i:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+.PHONY : src/gtest_main.cc.i
+
+src/gtest_main.s: src/gtest_main.cc.s
+
+.PHONY : src/gtest_main.s
+
+# target to generate assembly for a file
+src/gtest_main.cc.s:
+	cd /root/cpp/build && $(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+.PHONY : src/gtest_main.cc.s
 
 # Help Target
 help:
@@ -232,10 +264,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... gmock_main"
-	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/gtest-all.o"
+	@echo "... src/gtest-all.i"
+	@echo "... src/gtest-all.s"
+	@echo "... src/gtest_main.o"
+	@echo "... src/gtest_main.i"
+	@echo "... src/gtest_main.s"
 .PHONY : help
 
 
@@ -247,6 +283,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /root/cpp/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

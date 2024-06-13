@@ -1,4 +1,4 @@
-# Install script for directory: /root/cpp
+# Install script for directory: /root/cpp/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,6 +35,12 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/root/cpp/build/googlemock/cmake_install.cmake")
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
