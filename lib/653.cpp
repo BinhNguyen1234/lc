@@ -6,7 +6,8 @@ using namespace std;
 bool LookupValue(TreeNode* root, int lk){
     if(root == nullptr) return false;
     if(root->val == lk) return true;
-    return LookupValue(root->right, lk) || LookupValue(root->left, lk);
+    else if(lk < root->val) return LookupValue(root->left, lk);
+    else return LookupValue(root->right,  lk);
 }
 
 bool findTarget(TreeNode *root, int k){
