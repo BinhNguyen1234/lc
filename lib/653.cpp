@@ -22,15 +22,12 @@ bool findTarget(TreeNode *root, int k){
   queue<TreeNode*> q;
 
   q.push(root);
-
-
-
   while(!q.empty()){
     auto FirstInQ = q.front();
 
     int val = FirstInQ->val;
     int lookupValue = k - val;
-
+    int  size = q.size();
     // how to find value
     if(lookupValue == val ){
       q.pop();
@@ -42,7 +39,7 @@ bool findTarget(TreeNode *root, int k){
 
     //
     if(FirstInQ->left != nullptr){
-      q.push(FirstInQ->leftl);
+      q.push(FirstInQ->left);
     }
 
     if(FirstInQ->right != nullptr){
