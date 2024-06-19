@@ -16,7 +16,7 @@ vector<double> averageOfLevels(TreeNode* root){
       while(--size >= 0){
 	totalAtLevel += q.front()->val ;
 	q.pop();
-      }1
+      }
       if(firstInQ->left != nullptr){
 	q.push(firstInQ->left);	
       }

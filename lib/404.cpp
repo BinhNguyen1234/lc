@@ -12,7 +12,7 @@ int sumOfLeftLeaves(TreeNode* root){
     if(isLeaves(root->left)){
       answer += root->left->val;
     }else {
-      answer += sumOfLeftLeaves(TreeNode *root)mmOfLeftLeaves(root->left);
+      answer += sumOfLeftLeaves(root->left);
     }
   }
   if(root->right != nullptr){
