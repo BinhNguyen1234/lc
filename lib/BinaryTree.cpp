@@ -20,7 +20,6 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
     while(!q.empty()){
       TreeNode* selectedNode = q.front();
       q.pop();
-      cout   << selectedNode->val << endl;     
       ++i;
       if(i<ListSize){
 	TreeNode* left = new TreeNode(listInt[i]);
@@ -42,11 +41,10 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
 void BreathFirstPrint(TreeNode* root){
   queue<TreeNode*> q;
   q.push(root);
-
   while(!q.empty()){
     TreeNode* selectedNode = q.front();
     q.pop();
-    cout << selectedNode->val;
+    cout << selectedNode->val << endl;
     if(selectedNode->left != nullptr){
       q.push(selectedNode->left);
     }

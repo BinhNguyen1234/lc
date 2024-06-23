@@ -24,7 +24,7 @@ int main(){
     cout << "end" << endl;
     vector<int> testData{4,2,6,1,3};
     TreeNode* testTree = buildBinaryTree(testData);
-
+    BreathFirstPrint(testTree);
 
     return 0;
 }
