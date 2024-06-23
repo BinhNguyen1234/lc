@@ -39,6 +39,23 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
     return newNode;
 
 }
+void BreathFirstPrint(TreeNode* root){
+  queue<TreeNode*> q;
+  q.push(root);
+
+  while(!q.empty()){
+    TreeNode* selectedNode = q.front();
+    q.pop();
+    cout << selectedNode->val;
+    if(selectedNode->left != nullptr){
+      q.push(selectedNode->left);
+    }
+    
+    if(selectedNode->right != nullptr){
+      q.push(selectedNode->right);
+    }
+  }
+}
 
 
 
