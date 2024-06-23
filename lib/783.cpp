@@ -26,7 +26,7 @@ int findDiff (int value, TreeNode* root){
   return diff; 
 }
 
-int findDiffInList(int value , vector<TreeNode*> rootList) { 
+int findDiffInList(int value , vector<TreeNode*>& rootList) { 
   int min = abs(value - rootList[0]->val);
   for(auto root:rootList ){
     int currentMin = findDiff(value, root);
