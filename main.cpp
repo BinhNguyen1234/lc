@@ -12,6 +12,8 @@
 #include "./include/653.h"
 #include "./include/404.h"
 #include "./include/783.h"
+#include "./include/BinaryTree.h"
+#include "./include/TreeNode.h"
 using namespace std;
 
 int main(){
@@ -20,5 +22,9 @@ int main(){
     string result = destCity(test);
     cout << result << endl;
     cout << "end" << endl;
+    vector<int> testData{4,2,6,1,3};
+    TreeNode* testTree = buildBinaryTree(testData);
+
+
     return 0;
 }
