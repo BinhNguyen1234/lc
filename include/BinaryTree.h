@@ -2,8 +2,8 @@
 #define BuildBTS
 #include "TreeNode.h"
 #include <vector>
+using namespace std;
 
-
-TreeNode* buildBinaryTree(std::vector<int> listInt);
+TreeNode* buildBinaryTree(vector<int>& listInt);
 
 #endif
