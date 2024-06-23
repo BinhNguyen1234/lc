@@ -1,4 +1,5 @@
 #include "../include/BinaryTree.h"
+#include <iostream>
 #include "../include/TreeNode.h"
 #include <vector>
 #include <queue>
@@ -13,17 +14,18 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
     }
     TreeNode* newNode = new  TreeNode(listInt[0]);
     queue<TreeNode*> q;
+    q.push(newNode);
     int i = 0;
     int ListSize = listInt.size();
-    while(i<ListSize){
+    while(!q.empty()){
       TreeNode* selectedNode = q.front();
       q.pop();
-      
+      cout   << selectedNode->val << endl;     
       ++i;
       if(i<ListSize){
 	TreeNode* left = new TreeNode(listInt[i]);
 	selectedNode->left = left;
-	q.push(left);
+	q.push(selectedNode->left);
       }
 
       
@@ -31,7 +33,7 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
       if(i<ListSize){
 	TreeNode* right = new TreeNode(listInt[i]);
 	selectedNode->right = right;
-	q.push(right);
+	q.push(selectedNode->right);
       }
     }
     return newNode;
