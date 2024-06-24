@@ -13,6 +13,7 @@
 #include "./include/404.h"
 #include "./include/783.h"
 #include "./include/BinaryTree.h"
+#include "./include/530.h"
 #include "./include/TreeNode.h"
 using namespace std;
 
