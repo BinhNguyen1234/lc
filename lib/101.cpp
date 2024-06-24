@@ -24,15 +24,16 @@ bool isSymmetric(TreeNode* root){
     q1.pop();
     q2.pop();
 
-   
+    if(selected1->left != nullptr){
       q1.push(selected1->left);
       q2.push(selected2->right);
+    }
+
+    if(selected2->right != nullptr){
       q1.push(selected1->right);
       q2.push(selected2->left);
-
-    
-    
-
+    }
   }
+  if(!q2.empty()) return false;
   return true;
 }
