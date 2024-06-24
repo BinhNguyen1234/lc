@@ -29,7 +29,7 @@ bool isSymmetric(TreeNode* root){
       q2.push(selected2->right);
     }
 
-    if(selected2->right != nullptr){
+    if(selected1->right != nullptr){
       q1.push(selected1->right);
       q2.push(selected2->left);
     }
