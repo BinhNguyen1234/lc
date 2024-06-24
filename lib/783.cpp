@@ -59,7 +59,7 @@ int minDiffInBST(TreeNode* root ){
       vt.push_back(last->right);
     }
     int a = findDiffInList(currentValue, vt);
-    if(a < min){
+    if(a < min && a != 0){
       min = a;
     }
   }
