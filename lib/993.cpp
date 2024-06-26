@@ -9,34 +9,29 @@ bool isCousins(TreeNode *root, int x, int y){
   q.push(root);
 
   while(!q.empty()){
+    bool result = true;
     int size = q.size();
-    int a = -1;
-    int b = -1;
     for(int i = 0; i < size; i++){
       TreeNode* current = q.front();
-      q.pop();
-      if(current->val == x){
-	a = x;
+      result = findDept(current->left,x,y) && findDept(current->right,x,y);  
+      
+      if(result == true){
+	return false;
       }
-      if(current->val == y){
-	b = y;
+
+      if(current->left != nullptr){
+	q.push(current->left);
       }
-    }
-    if(a == x && b== y){
-      return true;
-    } else {
-      a = -1;
-      b = -1;
+      if(current->right != nullptr){
+	q.push(current->right);
+      }
     }
 
   }
-  return false;
 }
-int findDept(TreeNode* root, int value){
-  if(root->val == value){
-    return 1;
+bool findDept(TreeNode* root, int value1, int value2){
+  if(root == nullptr ){
+    return false;
   }
-  else {
-    return 0;
-  }
+  return root->val == value1 || root->val == value2);
 }
