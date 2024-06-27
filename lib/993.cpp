@@ -4,20 +4,35 @@
 using namespace std;
 
 
+bool findDept(TreeNode* root, int value1, int value2){
+  if(root == nullptr ){
+    return false;
+  }
+  return root->val == value1 || root->val == value2;
+}
 bool isCousins(TreeNode *root, int x, int y){
   queue<TreeNode*> q;
   q.push(root);
 
   while(!q.empty()){
-    bool result = true;
+     bool a = false;
+     bool b = false;
     int size = q.size();
     for(int i = 0; i < size; i++){
       TreeNode* current = q.front();
-      result = findDept(current->left,x,y) && findDept(current->right,x,y);  
-      
+      q.pop(); 
+      bool result = findDept(current->left,x,y) && findDept(current->right,x,y);  
+            
       if(result == true){
 	return false;
       }
+      if(current->val == x){
+	a = true;
+      }
+      if (current->val == y){
+	b = true;
+      }
+      
 
       if(current->left != nullptr){
 	q.push(current->left);
@@ -26,12 +41,10 @@ bool isCousins(TreeNode *root, int x, int y){
 	q.push(current->right);
       }
     }
+    if(a && b){
+      return true;
+    }
 
   }
-}
-bool findDept(TreeNode* root, int value1, int value2){
-  if(root == nullptr ){
-    return false;
-  }
-  return root->val == value1 || root->val == value2);
+  return false;
 }
