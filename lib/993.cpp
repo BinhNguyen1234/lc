@@ -21,19 +21,16 @@ bool isCousins(TreeNode *root, int x, int y){
     for(int i = 0; i < size; i++){
       TreeNode* current = q.front();
       q.pop(); 
-      bool result = findDept(current->left,x,y) && findDept(current->right,x,y);  
-            
-      if(result == true){
+      if(findDept(current->left,x,y) && findDept(current->right,x,y)){
 	return false;
-      }
+      };  
+      
       if(current->val == x){
 	a = true;
       }
       if (current->val == y){
 	b = true;
       }
-      
-
       if(current->left != nullptr){
 	q.push(current->left);
       }
