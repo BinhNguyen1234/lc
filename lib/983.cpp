@@ -3,10 +3,19 @@
 
 
 int rangeSumBST(TreeNode *root, int low, int high){
-  if( root->val > high || root->val < low){
-    return 0;
+  int total = 0;
+  if(root == nullptr){
+    return total;
+  } else {
+    total += root->val;
   }
-  return root-> val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
+  if(root->val < low){
+    total += rangeSumBST(root->right, low, high);
+  }
+  if(root->val > high){
+    total += rangeSumBST(root->left, low, high);
+  }
+  return total;
 }
 
 
