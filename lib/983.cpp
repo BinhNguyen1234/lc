@@ -2,11 +2,11 @@
 #include "../include/TreeNode.h"
 
 
-int rangeSumBTS(TreeNode *root, int low, int high){
+int rangeSumBST(TreeNode *root, int low, int high){
   if( root->val > high || root->val < low){
     return 0;
   }
-  return root-> val + rangeSumBTS(root->left, low, high) + rangeSumBTS(root->right, low, high);
+  return root-> val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
 }
 
 

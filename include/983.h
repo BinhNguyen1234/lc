@@ -3,5 +3,5 @@
 #include "TreeNode.h"
 
 
-int rangeSumBTS(TreeNode* root, int low, int high);
+int rangeSumBST(TreeNode* root, int low, int high);
 #endif
