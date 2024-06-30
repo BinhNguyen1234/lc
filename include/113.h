@@ -5,11 +5,9 @@
 
 using namespace std;
 
-vector<vector<int>> pathSum(TreeNode* root, int targetSum){
-  int remain = targetSum - root->val;
-  if ()
-}
+vector<vector<int>> pathSum(TreeNode* root, int targetSum);
 
-vectorw
+
+
 
 #endif
