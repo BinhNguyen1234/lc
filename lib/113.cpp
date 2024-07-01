@@ -8,11 +8,9 @@ void buildingPath(TreeNode* root, int targetSum, vector<vector<int>> Sum, vector
   }
   path.push_back(root->val);
   if(root->left == nullptr && root->right == nullptr && root->val == targetSum){
-    vector<int> f(path);
-    Sum.push_back(f);
+    Sum.push_back(path);
   }
-  buildingPath(root->left, targetSum - root->val, Sum, path);
-  path.pop_back();
+  buildingPath(root->left, targetSum - root->val, Sum, path);  
   buildingPath(root->right, targetSum - root->val, Sum, path);
   path.pop_back();
 }
