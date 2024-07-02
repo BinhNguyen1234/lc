@@ -9,6 +9,7 @@ TreeNode* increasingBST(TreeNode* root){
   } 
   TreeNode* temp = root->left;
   root->left = root;
+  temp->right = root;
   return increasingBST(temp);
 }
 
