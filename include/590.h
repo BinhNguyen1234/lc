@@ -1,10 +1,13 @@
 #ifndef LeetCode590
 
 #define LeetCode590
-#include "TreeNode.h"
+#include "Node.h"
 #include <vector>
 using namespace std;
 
-vector<int> 
+vector<int> postorder(Node* root);
+
+
+ 
 
 #endif
