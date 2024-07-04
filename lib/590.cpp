@@ -6,17 +6,17 @@ using namespace std;
 
 
 void postOrder(Node* root, vector<int>& result){
-  if(root->children.size() != 0){
     for(int i = 0; i < root->children.size(); i++){
       postOrder(root->children[i], result);
     }
-  }else{
     result.push_back(root->val);
-  }
 }
 vector<int> postorder(Node *root){
 
   vector<int> answer;
+  if(root == nullptr){
+    return answer;
+  }
   postOrder(root, answer);
 
   return answer;
