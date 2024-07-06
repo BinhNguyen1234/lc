@@ -7,7 +7,6 @@ TreeNode* increasingBST(TreeNode* root){
     root->right = increasingBST(root->right);
   }
 
-  TreeNode* left = root->left;
   if(left == nullptr){
     return root;
   }else {
