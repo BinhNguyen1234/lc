@@ -1,23 +1,21 @@
 #include "../include/897.h"
 #include "../include/TreeNode.h"
 TreeNode* increasingBST(TreeNode* root){
-  TreeNode* temp = root;
 
-  while(temp != nullptr){
-    if(temp->left !=nullptr ){
-      root->right = increasingBST(temp->left);
+  TreeNode* left = root->left;
+  while(left != nullptr){
+    
+    if(left->right == nullptr){
+      left-> right = root;
+      left = nullptr;
+    }else {
+      left = left->right;
     }
-    if(temp->right == nullptr){
-      temp->right = root;
-    }
-    else
-    {
-    temp = temp->right;
-    } 
   }
-  if(root->left ==  nullptr){
+  if(left == nullptr){
     return root;
- }
-   
+  }
+  left->right = root;
+  root->right = nullptr;
   return increasingBST(root->left);
 }
