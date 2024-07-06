@@ -9,8 +9,11 @@ TreeNode* increasingBST(TreeNode* root){
   while(temp != nullptr){
     if(temp->right == nullptr){
       temp->right = root;
-    } 
+    }
+    else
+    {
     temp = temp->right;
+    } 
   }
   if(root->left ==  nullptr){
     return root;
