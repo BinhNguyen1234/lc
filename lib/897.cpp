@@ -6,17 +6,20 @@ TreeNode* increasingBST(TreeNode* root){
   if(root->right != nullptr){
     root->right = increasingBST(root->right);
   }
-  while(left != nullptr){
-    
-    if(left->right == nullptr){
-      left->right = root;
-      left = nullptr;
-    }else {
-      left = left->right;
-    }
-  }
+
+
   if(root->left == nullptr){
     return root;
+  }else {
+    TreeNode* temp = root->left;
+    while(temp != nullptr){
+      if(temp->right == nullptr){
+	temp->right = root;
+	break;
+      }    
+  
+      temp = temp->right;
+    }
   }
   return increasingBST(root->left);
 }
