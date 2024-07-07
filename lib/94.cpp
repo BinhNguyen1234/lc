@@ -17,7 +17,7 @@ vector<int> inorderTraversal(TreeNode* root){
       left = stck.top()->left;
     }
     TreeNode* current = stck.top();
-
+    stck.pop();
     answer.push_back(current->val);
     if(current->right != nullptr){
       stck.push(current->right);
