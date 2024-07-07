@@ -5,7 +5,9 @@
 using namespace std;
 // sample [1,null,2,3]
 vector<int> inorderTraversal(TreeNode* root){
+  
   vector<int> answer;
+  if(root == nullptr) return answer;
   stack<TreeNode*> stck;
   stck.push(root);
 
