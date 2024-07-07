@@ -7,26 +7,25 @@ using namespace std;
 vector<int> inorderTraversal(TreeNode* root){
   
   vector<int> answer;
-  if(root == nullptr) return answer;
   stack<TreeNode*> stck;
   stck.push(root);
-
-  while(!stck.empty()){
+  TreeNode* top = stck.top();
+  while(top != nullptr){
 
     TreeNode* current = stck.top();
     while(!stck.empty()){
-
       TreeNode* left = current->left; // this casue inter loop
       while(left != nullptr){
 	stck.push(left);
 	left = stck.top()->left;
       }
-      current = stck.top();
-      stck.pop();
-      answer.push_back(current->val);
-      if(current->right != nullptr){
-	stck.push(current->right);
-      }
+    }
+    top = stck.top();
+    stck.pop();
+    answer.push_back(top->val);
+    if(top->right != nullptr){
+      stck.push(current->right);
+      top = stck.top();
     }
   }
   return answer;
