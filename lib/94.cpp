@@ -13,21 +13,22 @@ vector<int> inorderTraversal(TreeNode* root){
   while(top != nullptr){
 
     TreeNode* left = top->left;
+
+    // put first-dept left to stack
     while(left != nullptr){
       stck.push(left);
       left = stck.top();
     }
-    top = stck.top(); //get left
+    top = stck.top(); //get first-dept left
     answer.push_back(top->val);
-    stck.pop(); // remove left from stack
-    top = stck.top(); // get root
-    answer.push_back(top->val);
-
+    stck.pop(); // remove first-dept left from stack  
     //get right if have
-    if(top->right != nullptr){
-      stck.push(top->right);
+    while(top->right == nullptr){
+      stck.pop();
       top = stck.top();
-      answer.push_back(top->val);
+    }
+    if(top->right !=nullptr){
+      top = stck.top();
     }
   }
   return answer;
