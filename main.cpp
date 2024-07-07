@@ -15,6 +15,7 @@
 #include "./include/BinaryTree.h"
 #include "./include/530.h"
 #include "./include/TreeNode.h"
+#include "./include/94.h"
 using namespace std;
 
 int main(){
@@ -25,6 +26,6 @@ int main(){
     cout << "end" << endl;
     vector<int> testData{4,2,6,1,3};
     TreeNode* testTree = buildBinaryTree(testData);
-    BreathFirstPrint(testTre)
+
     return 0;
 }

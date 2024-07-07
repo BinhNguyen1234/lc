@@ -3,7 +3,7 @@
 #include <vector>
 #include <stack>
 using namespace std;
-
+// sample [1,null,2,3]
 vector<int> inorderTraversal(TreeNode* root){
   vector<int> answer;
   stack<TreeNode*> stck;
@@ -11,13 +11,15 @@ vector<int> inorderTraversal(TreeNode* root){
 
   while(!stck.empty()){
 
-    TreeNode* left = stck.top()->left;
+    TreeNode* current = stck.top();
+    TreeNode* left = current->left;
     while(left != nullptr){
       stck.push(left);
       left = stck.top()->left;
     }
-    TreeNode* current = stck.top();
     stck.pop();
+    current = stck.top();
+
     answer.push_back(current->val);
     if(current->right != nullptr){
       stck.push(current->right);
