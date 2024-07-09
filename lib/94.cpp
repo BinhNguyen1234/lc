@@ -10,7 +10,7 @@ vector<int> inorderTraversal(TreeNode* root){
   stack<TreeNode*> stck;
   stck.push(root);
   TreeNode* top = stck.top();
-  while(top != nullptr){
+  while(!stck.empty()){
 
     TreeNode* left = top->left;
 
@@ -19,17 +19,17 @@ vector<int> inorderTraversal(TreeNode* root){
       stck.push(left);
       left = stck.top();
     }
-    top = stck.top(); //get first-dept left
-    answer.push_back(top->val);
-    stck.pop(); // remove first-dept left from stack  
-    //get right if have
-    while(top->right == nullptr){
-      stck.pop();
-      top = stck.top();
-    }
-    if(top->right !=nullptr){
-      top = stck.top();
-    }
+
+    while(!stck.empty()){
+
+      top = stck.top(); //get first-dept left
+
+      answer.push_back(top->val);
+      stck.pop();// remove first-dept left from stack 
+      if(top->right != nullptr){
+	stck.push(top->right);	
+      }
+    } 
   }
   return answer;
 }
