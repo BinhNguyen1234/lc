@@ -21,7 +21,7 @@ vector<int> inorderTraversal(TreeNode* root){
     // put first-dept left to stack
     while(left != nullptr){
       stck.push(left);
-      left = stck.top();
+      left = left->left;
     }
 
     while(!stck.empty()){
