@@ -7,6 +7,10 @@ using namespace std;
 vector<int> inorderTraversal(TreeNode* root){
   
   vector<int> answer;
+  if(root == nullptr){
+    return answer;
+  }
+
   stack<TreeNode*> stck;
   stck.push(root);
   TreeNode* top = stck.top();
@@ -28,6 +32,8 @@ vector<int> inorderTraversal(TreeNode* root){
       stck.pop();// remove first-dept left from stack 
       if(top->right != nullptr){
 	stck.push(top->right);	
+	top = stck.top();
+	break;
       }
     } 
   }
