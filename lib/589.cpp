@@ -18,15 +18,13 @@ vector<int> preorder(Node *root){
     Node* current = s.top();
     s.pop();
     answer.push_back(current->val);
-    s.pop();
     if(!current->children.empty()){
       for(int i = current->children.size() - 1; i >=0 ; i--){
 	s.push(current->children[i]);
       }
     }
   }
-  return answer;
-    
 
+  return answer;
 }
 
