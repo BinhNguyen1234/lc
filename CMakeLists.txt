@@ -15,18 +15,20 @@ add_library(404 STATIC lib/404.cpp)
 add_library(530 STATIC lib/530.cpp)
 add_library(637 SHARED lib/637.cpp)
 add_library(783 SHARED lib/783.cpp)
+add_library(Binary SHARED lib/Binary.cpp)
 add_library(BinaryTree SHARED lib/BinaryTree.cpp)
 # Entry of of is main cpp, and will build a fie name main.exe or main.so
 add_executable(main main.cpp)
+add_executable(CommonTest CommonTest.cpp)
 add_executable(MyTests test.cpp)
 # add libary 1436 to main (must have been created by a command such as add_executable() or add_library())
-target_link_libraries(main PRIVATE 1436)
+target_link_libraries(main PRIVATE 1436 Binary)
 # add many libaries add 
 target_link_libraries(main PRIVATE 257 266 463 733 404 637)
 target_link_libraries(main PRIVATE 653 783 BinaryTree 530)
 # Link Google Test to the test executable
-target_link_libraries(MyTests gtest gtest_main)
-
+target_link_libraries(MyTests gtest gtest_main Binary)
+target_link_libraries(CommonTest gtest gtest_main)
 # Enable testing and add tests
 enable_testing()
 add_test(NAME unittest  COMMAND MyTests)

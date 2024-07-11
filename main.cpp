@@ -16,16 +16,10 @@
 #include "./include/530.h"
 #include "./include/TreeNode.h"
 #include "./include/94.h"
+#include "./include/Binary.h"
 using namespace std;
 
 int main(){
     cout << "Hello" << endl;
-    vector<vector<string>> test{{"pYyNGfBYbm","wxAscRuzOl"},{"kzwEQHfwce","pYyNGfBYbm"}};
-    string result = destCity(test);
-    cout << result << endl;
-    cout << "end" << endl;
-    vector<int> testData{4,2,6,1,3};
-    TreeNode* testTree = buildBinaryTree(testData);
-
     return 0;
 }
