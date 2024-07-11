@@ -19,11 +19,13 @@ using namespace std;
   //  EXPECT_EQ(add(-10, -20), -30);
 //}
 
-TEST(BinaryTest, TestingBinayLib){
-    vector<int> expectResult{1,1,0};
+TEST(BinaryTest, convert){
+    vector<int> expectResult{1,0,0};
     EXPECT_EQ(convertToBinary(4), expectResult);
     vector<int> expectResult2{0};
     EXPECT_EQ(convertToBinary(0), expectResult2);
+    vector<int> expectResult3{1,1,0,0,1,0};
+    EXPECT_EQ(convertToBinary(50), expectResult3);
 }
 
 // Entry point for the test executable

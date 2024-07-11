@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int convertToDecimal(int bNumber);
+int convertToDecimal(vector<int> bNumber);
 vector<int> convertToBinary(int dNumber);
 
 
