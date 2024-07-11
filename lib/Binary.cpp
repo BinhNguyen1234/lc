@@ -16,8 +16,8 @@ vector<int> convertToBinary(int dNumber){
   int remainder;
   int devision = dNumber;
   do {
-    devision /= 2;
     remainder = devision%2;
+    devision /= 2;
     s.push(remainder);
   } while(devision > 0);
   
