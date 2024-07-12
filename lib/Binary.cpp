@@ -1,13 +1,21 @@
 #include "../include/Binary.h"
 #include <stack>
 #include <vector>
+#include <math.h>
  using namespace std;
 
 
 
 int convertToDecimal(vector<int> bNumber){
+  int answer = 0;
 
+  int lastIndex = bNumber.size() - 1 ;
+  for(int i = 0; i < bNumber.size(); i++){
   
+    answer += pow(bNumber[i], lastIndex - i);
+
+  }
+  return answer;
 
 }
 vector<int> convertToBinary(int dNumber){

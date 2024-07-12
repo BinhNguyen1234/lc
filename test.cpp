@@ -19,13 +19,21 @@ using namespace std;
   //  EXPECT_EQ(add(-10, -20), -30);
 //}
 
-TEST(BinaryTest, convert){
+TEST(BinaryTest, convertToBi){
     vector<int> expectResult{1,0,0};
     EXPECT_EQ(convertToBinary(4), expectResult);
     vector<int> expectResult2{0};
     EXPECT_EQ(convertToBinary(0), expectResult2);
     vector<int> expectResult3{1,1,0,0,1,0};
     EXPECT_EQ(convertToBinary(50), expectResult3);
+}
+TEST(BinaryTest, convertToDec){
+    vector<int> argument{1,0,0};
+    EXPECT_EQ(convertToDecimal(argument),4);
+    vector<int> argument2{0};
+    EXPECT_EQ(convertToDecimal(argument2), 0);
+    vector<int> argurment3{1,1,0,0,1,0};
+    EXPECT_EQ(convertToDecimal(argurment3),50);
 }
 
 // Entry point for the test executable
