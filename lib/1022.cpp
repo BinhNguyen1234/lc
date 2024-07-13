@@ -1,6 +1,7 @@
 #include "../include/1022.h"
 #include <vector>
 #include <stack>
+#include <math.h>
 using namespace std;
 
 int sumRootToLeaf(TreeNode *root){
@@ -44,6 +45,16 @@ int sumRootToLeaf(TreeNode *root){
       }   
     }
   }
+
+  for(int i =0; i < allPath.size(); i++){
+    int decimalAtPath = 0;
+    int sizeOfBinary = allPath[i].size();
+    for(int j = 0; j < sizeOfBinary; j++){
+	decimalAtPath += allPath[i][j] * pow(2,sizeOfBinary - i);
+    }
+    answer += decimalAtPath;
+  }
+
 
   return answer;
 }
