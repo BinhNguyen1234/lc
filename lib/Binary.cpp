@@ -12,7 +12,7 @@ int convertToDecimal(vector<int> bNumber){
   int lastIndex = bNumber.size() - 1 ;
   for(int i = 0; i < bNumber.size(); i++){
   
-    answer += pow(bNumber[i], lastIndex - i);
+    answer += bNumber[i]* pow(2, lastIndex - i);
 
   }
   return answer;
