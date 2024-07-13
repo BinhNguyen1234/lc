@@ -31,4 +31,4 @@ target_link_libraries(unittest gtest gtest_main Binary)
 target_link_libraries(CommonTest gtest gtest_main)
 # Enable testing and add tests
 enable_testing()
-add_test(NAME unittest  COMMAND MyTests)
+add_test(NAME unittest  COMMAND utest)
