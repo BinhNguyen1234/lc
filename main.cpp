@@ -20,14 +20,8 @@
 using namespace std;
 
 int main(){
-  int i =0;
-    while(i < 10){
-	i++;
-      if( i % 2 ==0){
-	break;
-      }
-      cout << i;
-    }
-    cout << "Hello" << endl;
+    vector<int> ff{1,2,3};
+    
+
     return 0;
 }

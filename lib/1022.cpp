@@ -41,20 +41,14 @@ int sumRootToLeaf(TreeNode *root){
 	path.push_back(right->val);	
 	break;
       }else {
-	allPath.push_back(path);
+	  int size = path.size();
+	  int decimal = 0;
+	  for(int j = 0; j < size; j++){
+	    decimal += path[j] * pow(2, size - j);
+	  }
+	  answer += decimal;
       }   
     }
   }
-
-  for(int i =0; i < allPath.size(); i++){
-    int decimalAtPath = 0;
-    int sizeOfBinary = allPath[i].size();
-    for(int j = 0; j < sizeOfBinary; j++){
-	decimalAtPath += allPath[i][j] * pow(2,sizeOfBinary - i);
-    }
-    answer += decimalAtPath;
-  }
-
-
   return answer;
 }
