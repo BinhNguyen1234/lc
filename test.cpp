@@ -1,7 +1,7 @@
 #include "googletest/googletest/include/gtest/gtest.h" 
 #include "./include/Binary.h"
 #include <vector>
-
+#include <queue>
 using namespace std;
 // Sample function to test
 //int add(int a, int b) {
@@ -34,6 +34,24 @@ TEST(BinaryTest, convertToDec){
     EXPECT_EQ(convertToDecimal(argument2), 0);
     vector<int> argurment3{1,1,0,0,1,0};
     EXPECT_EQ(convertToDecimal(argurment3),50);
+}
+TEST(BinaryTest, convertToDecByBacktracking){
+    queue<int> argument;
+    argument.push(1);
+    argument.push(0);
+    argument.push(0);
+    EXPECT_EQ(convertToDecimal(argument, 0),4);
+    queue<int> argument2;
+    argument.push(0);
+    EXPECT_EQ(convertToDecimal(argument2, 0), 0);
+    queue<int> argurment3;
+    argurment3.push(1);
+    argurment3.push(1);
+    argurment3.push(0);
+    argurment3.push(0);
+    argurment3.push(1);
+    argurment3.push(0);
+    EXPECT_EQ(convertToDecimal(argurment3, 0),50);
 }
 
 // Entry point for the test executable

@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include <math.h>
+#include <queue>
  using namespace std;
 
 
@@ -18,6 +19,18 @@ int convertToDecimal(vector<int> bNumber){
   return answer;
 
 }
+
+int convertToDecimal(queue<int> bNUmber, int backtracking = 0){
+
+  if(bNUmber.empty()){
+    return backtracking;
+  }
+  int top = bNUmber.front();
+  bNUmber.pop();
+  int currentDecimal = backtracking*2 + top;
+  return convertToDecimal(bNUmber,currentDecimal);
+}
+
 vector<int> convertToBinary(int dNumber){
   stack<int> s;
   vector<int> bin;
