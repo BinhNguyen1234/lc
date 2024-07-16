@@ -13,10 +13,10 @@ vector<int> inorderTraversal(TreeNode* root){
 
   stack<TreeNode*> stck;
   stck.push(root);
-  TreeNode* top = stck.top();
+  TreeNode* current = stck.top();
   while(!stck.empty()){
 
-    TreeNode* left = top->left;
+    TreeNode* left = current->left;
 
     // put first-dept left to stack
     while(left != nullptr){
@@ -26,13 +26,13 @@ vector<int> inorderTraversal(TreeNode* root){
 
     while(!stck.empty()){
 
-      top = stck.top(); //get first-dept left
+      TreeNode* top = stck.top(); //get first-dept left
 
       answer.push_back(top->val);
       stck.pop();// remove first-dept left from stack 
       if(top->right != nullptr){
 	stck.push(top->right);	
-	top = stck.top();
+	current = stck.top();
 	break;
       }
     } 
