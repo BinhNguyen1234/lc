@@ -2,6 +2,9 @@
 #include "./include/Binary.h"
 #include <vector>
 #include <queue>
+#include "./include/BinaryTree.h"
+#include "./include/94.h"
+#include "./include/145.h"
 using namespace std;
 // Sample function to test
 //int add(int a, int b) {
@@ -53,7 +56,23 @@ TEST(BinaryTest, convertToDecByBacktracking){
     argurment3.push(0);
     EXPECT_EQ(convertToDecimal(argurment3, 0),50);
 }
+TEST(DFS, inOrder){
+  vector<int> argrument{1};
+  vector<int> expect{1,3,2};
+  TreeNode* tree = buildBinaryTree(argrument);
+  tree->right = new TreeNode(2);
+  tree->right->left = new TreeNode(3);
+  EXPECT_EQ(inorderTraversal(tree), expect);
+}
 
+TEST(DFS, postOrder){
+  vector<int> argrument{1};
+  vector<int> expect{3,2,1};
+  TreeNode* tree = buildBinaryTree(argrument);
+  tree->right = new TreeNode(2);
+  tree->right->left = new TreeNode(3);
+  EXPECT_EQ(postorderTraversal(tree), expect);
+}
 // Entry point for the test executable
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
