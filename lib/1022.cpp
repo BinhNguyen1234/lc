@@ -5,6 +5,9 @@
 using namespace std;
 
 int convertPathToDecimal(TreeNode* node, int backtracking){
+  if(node == nullptr){
+    return 0;
+  }
   int currentValue = backtracking*2 + node->val;
   if(node->left == nullptr && node->right == nullptr){
     return currentValue;  	
