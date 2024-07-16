@@ -5,10 +5,10 @@
 using namespace std;
 
 int convertPathToDecimal(TreeNode* node, int backtracking){
-  if(node == nullptr){
-    return backtracking;	
-  }
   int currentValue = backtracking*2 + node->val;
+  if(node->left == nullptr && node->right == nullptr){
+    return currentValue;  	
+  }
   return convertPathToDecimal(node->left, currentValue)+ convertPathToDecimal(node->right,currentValue);
 }
 int sumRootToLeaf(TreeNode *root){
