@@ -6,14 +6,12 @@ using namespace std;
 
 int sumRootToLeaf(TreeNode *root){
   int answer = 0;
-  vector<int> path;
-  vector<vector<int>> allPath;
   if(root == nullptr){
     return answer;
   }
+  int valueAtPath = 0;
   stack<TreeNode*> s;
   s.push(root);
-  path.push_back(root->val);
   TreeNode* visitor = root;
 
   while(!s.empty()){
@@ -25,7 +23,7 @@ int sumRootToLeaf(TreeNode *root){
     while(left!=nullptr){
       s.push(left);
       //write history path build path
-      path.push_back(left->val);
+      valueAtPath = valueAtPath * 2 + left->val;
       left = current->left;
     }
 
@@ -34,19 +32,14 @@ int sumRootToLeaf(TreeNode *root){
       TreeNode* right = leftDeptFirst->right;
 
       s.pop();
-      path.pop_back();
+      valueAtPath = (valueAtPath - leftDeptFirst->val)/2;
       if(right != nullptr){
 	s.push(right);
 	visitor = s.top();
-	path.push_back(right->val);	
+	valueAtPath = (valueAtPath * 2) + right->val;	
 	break;
       }else {
-	  int size = path.size();
-	  int decimal = 0;
-	  for(int j = 0; j < size; j++){
-	    decimal += path[j] * pow(2, size - j);
-	  }
-	  answer += decimal;
+	  answer += valueAtPath;
       }   
     }
   }
