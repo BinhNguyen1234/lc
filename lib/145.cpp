@@ -12,9 +12,7 @@ vector<int> postorderTraversal(TreeNode *root){
   stack<TreeNode*> s;
   TreeNode* current = root;
 
-
-  while(!s.empty()){
-    current = current->right;
+  while(!s.empty() || current != nullptr){
     while(current != nullptr){
       s.push(current);
       if(current->right != nullptr){
@@ -28,7 +26,8 @@ vector<int> postorderTraversal(TreeNode *root){
       answer.push_back(top->val);
       s.pop();
       if(top->right != nullptr){
-	current = 
+	current = top->right;
+	s.pop();
 	break;
       }
     }
