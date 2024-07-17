@@ -23,13 +23,12 @@ vector<int> postorderTraversal(TreeNode *root){
     
     while(!s.empty()){
       TreeNode* top = s.top();
-      answer.push_back(top->val);
       s.pop();
       if(top->right != nullptr){
 	current = top->right;
-	s.pop();
 	break;
       }
+      answer.push_back(top->val);
     }
   }
   return answer;

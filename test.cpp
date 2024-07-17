@@ -56,7 +56,7 @@ TEST(BinaryTest, convertToDecByBacktracking){
     argurment3.push(0);
     EXPECT_EQ(convertToDecimal(argurment3, 0),50);
 }
-TEST(DFS, inOrder){
+TEST(DFS, 94){
   vector<int> argrument{1};
   vector<int> expect{1,3,2};
   TreeNode* tree = buildBinaryTree(argrument);
@@ -65,7 +65,7 @@ TEST(DFS, inOrder){
   EXPECT_EQ(inorderTraversal(tree), expect);
 }
 
-TEST(DFS, postOrder){
+TEST(DFS, 145){
   vector<int> argrument{1};
   vector<int> expect{3,2,1};
   TreeNode* tree = buildBinaryTree(argrument);
