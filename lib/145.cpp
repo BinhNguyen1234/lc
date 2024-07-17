@@ -10,26 +10,26 @@ vector<int> postorderTraversal(TreeNode *root){
   }
 
   stack<TreeNode*> s;
-
-  s.push(root);
-  TreeNode* current = s.top();
+  TreeNode* current = root;
 
 
   while(!s.empty()){
-    while(current->right != nullptr){
-      s.push(current->right);
-      current = current->right;
+    while(current != nullptr){
+      s.push(current);
+      if(current->right != nullptr){
+	s.push(current->right);
+      }
+      current = current->left;
     }
     
     while(!s.empty()){
       TreeNode* top = s.top();
-      if(top->left != nullptr){
-	s.push(top->left);
-	current = top->left;
+      answer.push_back(top->val);
+      s.pop();
+      if(top->right != nullptr){
+	current = 
 	break;
       }
-      s.pop();
-      answer.push_back(top->val);
     }
   }
   return answer;
