@@ -24,8 +24,8 @@ vector<int> postorderTraversal(TreeNode *root){
     while(!s.empty()){
       TreeNode* top = s.top();
       s.pop();
-      if(top->right != nullptr){
-	current = top->right;
+      if(top->right != nullptr || top->left != nullptr){
+	current = top;
 	break;
       }
       answer.push_back(top->val);
