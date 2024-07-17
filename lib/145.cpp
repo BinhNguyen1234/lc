@@ -14,6 +14,7 @@ vector<int> postorderTraversal(TreeNode *root){
 
 
   while(!s.empty()){
+    current = current->right;
     while(current != nullptr){
       s.push(current);
       if(current->right != nullptr){
