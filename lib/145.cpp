@@ -11,22 +11,18 @@ vector<int> postorderTraversal(TreeNode *root){
 
   stack<TreeNode*> s;
   TreeNode* current = root;
-
-  while(!s.empty() || current != nullptr){
-    while(current != nullptr){
-      s.push(current);
-      if(current->right != nullptr){
-	s.push(current->right);
-      }
-      current = current->left;
+  TreeNode* next = root->left;
+  while(!s.empty()){
+    while(next != nullptr){
+      s.push(next);
+      next = next->left;
     }
     
     while(!s.empty()){
       TreeNode* top = s.top();
       s.pop();
-      if(top->right != nullptr || top->left != nullptr){
-	current = top;
-	break;
+      if(top->right != nullptr){
+
       }
       answer.push_back(top->val);
     }
