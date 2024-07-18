@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> postorderTraversal(TreeNode* root);
-
+vector<int> useRecursiveToPostorderTraversal(TreeNode* root);
 
 #endif
 
