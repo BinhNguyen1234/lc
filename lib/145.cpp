@@ -1,6 +1,6 @@
 #include "../include/145.h"
 #include <stack>
-
+#include <iostream>
 using namespace std;
 
 vector<int> postorderTraversal(TreeNode *root){
@@ -11,23 +11,24 @@ vector<int> postorderTraversal(TreeNode *root){
 
   stack<TreeNode*> s;
   TreeNode* current = root;
+  TreeNode* visited = nullptr;
   while(!s.empty() || current != nullptr){
     while(current != nullptr){
-      s.push(current);
       if(current->right != nullptr){
 	s.push(current->right);
       }
+      s.push(current);
       current = current->left;
     }
-    TreeNode* top = s.top();
     while(!s.empty()){
-      TreeNode* top2 = s.top();
-      s.pop();
-      TreeNode* top2 = s.top();
-      if(top2->right != top){
-	 
+      TreeNode* top = s.top();
+      s.pop(); 
+      if(top->right != s.top()){
+	  s.pop();
+	  s.push(top);
+	  current = top->right;
+	  break;
       }
-
       answer.push_back(top->val);
     }
   }

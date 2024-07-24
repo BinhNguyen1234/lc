@@ -72,7 +72,7 @@ TEST(DFS, 145){
   tree->right = new TreeNode(2);
   tree->right->left = new TreeNode(3);
   EXPECT_EQ(useRecursiveToPostorderTraversal(tree),expect);
-//  EXPECT_EQ(postorderTraversal(tree), expect);
+  EXPECT_EQ(postorderTraversal(tree), expect);
 }
 // Entry point for the test executable
 int main(int argc, char **argv) {
