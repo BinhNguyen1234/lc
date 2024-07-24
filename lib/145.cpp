@@ -22,14 +22,16 @@ vector<int> postorderTraversal(TreeNode *root){
     }
     while(!s.empty()){
       TreeNode* top = s.top();
-      s.pop(); 
-      if(top->right != s.top()){
-	  s.pop();
-	  s.push(top);
-	  current = top->right;
-	  break;
+      s.pop();
+      if(top->right != nullptr && !s.empty() && top->right == s.top()){
+	s.pop();
+	s.push(top);
+	current = top->right;
+	break;
+      }else{
+	current = nullptr;
+	answer.push_back(top->val);
       }
-      answer.push_back(top->val);
     }
   }
   return answer;
