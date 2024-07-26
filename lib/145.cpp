@@ -5,13 +5,8 @@ using namespace std;
 
 vector<int> postorderTraversal(TreeNode *root){
   vector<int> answer;
-  if(root == nullptr){
-    return answer;
-  }
-
   stack<TreeNode*> s;
   TreeNode* current = root;
-  TreeNode* visited = nullptr;
   while(!s.empty() || current != nullptr){
     while(current != nullptr){
       if(current->right != nullptr){
@@ -20,19 +15,24 @@ vector<int> postorderTraversal(TreeNode *root){
       s.push(current);
       current = current->left;
     }
+
     while(!s.empty()){
       TreeNode* top = s.top();
       s.pop();
-      if(top->right != nullptr && !s.empty() && top->right == s.top()){
-	s.pop();
-	s.push(top);
-	current = top->right;
-	break;
-      }else{
-	current = nullptr;
-	answer.push_back(top->val);
+      if(top->right !=  nullptr && !s.empty()){
+	TreeNode* right = top->right;
+	TreeNode* nextNode = s.top();
+	if(right == nextNode){
+	  s.pop();
+	  s.push(top);
+	  current = nextNode;
+	  break;
+	}
       }
+      answer.push_back(top->val);
+      
     }
+
   }
   return answer;
 }
