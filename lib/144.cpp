@@ -21,6 +21,7 @@ vector<int> preorderTraversal(TreeNode *root){
       s.pop();
       if(top->right){
 	current = top->right;
+	break;
       }
     }
   }
