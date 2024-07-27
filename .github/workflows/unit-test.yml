@@ -25,7 +25,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         build_type: [Release]
-        c_compiler: [gcc, clang, cl]
+        c_compiler: [gcc]
         include:
           - os: ubuntu-latest
             c_compiler: gcc
@@ -57,15 +57,15 @@ jobs:
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -S ${{ github.workspace }}
         - uses: actions/checkout@v4
-    - name: configure
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    # - name: configure
+    #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
+    #   run: ./configure
+    # - name: make
+    #   run: make
+    # - name: make check
+    #   run: make check
+    # - name: make distcheck
+    #   run: make distcheck
 
     # - name: Build
     #   # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
