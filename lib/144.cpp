@@ -1,8 +1,8 @@
 #include "../include/144.h"
 #include <stack>
 using namespace std;
-
-vector<int> preorderTraversal(TreeNode *root){
+//root->left->right 
+vector<int> preorderTraversal(TreeNode *root){  
   vector<int> answer;
   stack<TreeNode*> s;
   if(root == nullptr){

@@ -2,10 +2,12 @@
 #include "./include/Binary.h"
 #include <vector>
 #include <queue>
+#include <list>
 #include "./include/BinaryTree.h"
 #include "./include/94.h"
 #include "./include/145.h"
 #include "./include/144.h"
+#include "./include/872.h"
 using namespace std;
 // Sample function to test
 //int add(int a, int b) {
@@ -84,6 +86,15 @@ TEST(DFS, 144){
   tree->right->left = new TreeNode(3);
   EXPECT_EQ(preorderTraversal(tree), expect);
 }
+TEST(DFS,872){
+  vector<int> initial1{3,5,1,6,2,9,8,nullptr,nullptr,7,4};
+  TreeNode* root1 = buildBinaryTree(initial);
+  
+  TreeNode* root2 = buildBinaryTree(initial);
+
+  EXPECT_EQ(leafSimilar(root1,root2), true);
+}
+
 // Entry point for the test executable
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

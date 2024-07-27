@@ -2,7 +2,7 @@
 #include <stack>
 #include <iostream>
 using namespace std;
-
+//left->right->root
 vector<int> postorderTraversal(TreeNode *root){
   vector<int> answer;
   stack<TreeNode*> s;
