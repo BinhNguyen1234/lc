@@ -19,6 +19,7 @@ add_library(Binary SHARED lib/Binary.cpp)
 add_library(BinaryTree SHARED lib/BinaryTree.cpp)
 add_library(145 SHARED lib/145.cpp)
 add_library(94 SHARED lib/94.cpp)
+add_library(144 SHARED lib/144.cpp)
 # Entry of of is main cpp, and will build a fie name main.exe or main.so
 add_executable(main main.cpp)
 add_executable(CommonTest CommonTest.cpp)
@@ -29,7 +30,7 @@ target_link_libraries(main PRIVATE 1436 Binary)
 target_link_libraries(main PRIVATE 257 266 463 733 404 637)
 target_link_libraries(main PRIVATE 653 783 BinaryTree 530)
 # Link Google Test to the test executable
-target_link_libraries(unittest 145 gtest gtest_main Binary BinaryTree 94)
+target_link_libraries(unittest 144 145 gtest gtest_main Binary BinaryTree 94)
 target_link_libraries(CommonTest gtest gtest_main)
 # Enable testing and add tests
 enable_testing()

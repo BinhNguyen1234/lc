@@ -5,6 +5,7 @@
 #include "./include/BinaryTree.h"
 #include "./include/94.h"
 #include "./include/145.h"
+#include "./include/144.h"
 using namespace std;
 // Sample function to test
 //int add(int a, int b) {
@@ -73,6 +74,15 @@ TEST(DFS, 145){
   tree->right->left = new TreeNode(3);
   EXPECT_EQ(useRecursiveToPostorderTraversal(tree),expect);
   EXPECT_EQ(postorderTraversal(tree), expect);
+}
+
+TEST(DFS, 144){
+  vector<int> argrument{1};
+  vector<int> expect{1,2,3};
+  TreeNode* tree = buildBinaryTree(argrument);
+  tree->right = new TreeNode(2);
+  tree->right->left = new TreeNode(3);
+  EXPECT_EQ(preorderTraversal(tree), expect);
 }
 // Entry point for the test executable
 int main(int argc, char **argv) {
