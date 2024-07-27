@@ -4,6 +4,7 @@
 #include <stack>
 using namespace std;
 // sample [1,null,2,3]
+// left -> root -> right
 vector<int> inorderTraversal(TreeNode* root){
   
   vector<int> answer;
@@ -11,31 +12,23 @@ vector<int> inorderTraversal(TreeNode* root){
     return answer;
   }
 
-  stack<TreeNode*> stck;
-  stck.push(root);
-  TreeNode* current = stck.top();
-  while(!stck.empty()){
-
-    TreeNode* left = current->left;
-
-    // put first-dept left to stack
-    while(left != nullptr){
-      stck.push(left);
-      left = left->left;
+  stack<TreeNode*> s;  
+  TreeNode* current = root;
+  while(!s.empty() || current != nullptr){
+    while(current != nullptr){
+      s.push(current);
+      current = current->left;
     }
-
-    while(!stck.empty()){
-
-      TreeNode* top = stck.top(); //get first-dept left
-
+    while(!s.empty()){
+      TreeNode* top = s.top();
+      s.pop();
       answer.push_back(top->val);
-      stck.pop();// remove first-dept left from stack 
       if(top->right != nullptr){
-	stck.push(top->right);	
-	current = stck.top();
+	current = top->right;
 	break;
       }
-    } 
+    }
+
   }
   return answer;
 }
