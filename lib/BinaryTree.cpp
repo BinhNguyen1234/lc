@@ -3,16 +3,16 @@
 #include "../include/TreeNode.h"
 #include <vector>
 #include <queue>
-
+#include <optional>
 using namespace std;
 
 
 
-TreeNode* buildBinaryTree(vector<int>& listInt){
+TreeNode* buildBinaryTree(vector<optional<int>>& listInt){
     if(listInt.empty()){
       return nullptr;
     }
-    TreeNode* newNode = new  TreeNode(listInt[0]);
+    TreeNode* newNode = new TreeNode(listInt[0].value());
     queue<TreeNode*> q;
     q.push(newNode);
     int i = 0;
@@ -22,7 +22,10 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
       q.pop();
       ++i;
       if(i<ListSize){
-	TreeNode* left = new TreeNode(listInt[i]);
+	TreeNode* left = nullptr; 
+	if(listInt[i].has_value()){
+	  left = new TreeNode(listInt[i].value());
+	}
 	selectedNode->left = left;
 	q.push(selectedNode->left);
       }
@@ -30,7 +33,11 @@ TreeNode* buildBinaryTree(vector<int>& listInt){
       
       ++i;
       if(i<ListSize){
-	TreeNode* right = new TreeNode(listInt[i]);
+
+	TreeNode* right = nullptr; 
+	if(listInt[i].has_value()){
+	  right = new TreeNode(listInt[i].value());
+	}
 	selectedNode->right = right;
 	q.push(selectedNode->right);
       }

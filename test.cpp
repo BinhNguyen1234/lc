@@ -3,6 +3,7 @@
 #include <vector>
 #include <queue>
 #include <list>
+#include <optional>
 #include "./include/BinaryTree.h"
 #include "./include/94.h"
 #include "./include/145.h"
@@ -60,7 +61,7 @@ TEST(BinaryTest, convertToDecByBacktracking){
     EXPECT_EQ(convertToDecimal(argurment3, 0),50);
 }
 TEST(DFS, 94){
-  vector<int> argrument{1};
+  vector<optional<int>> argrument{1};
   vector<int> expect{1,3,2};
   TreeNode* tree = buildBinaryTree(argrument);
   tree->right = new TreeNode(2);
@@ -69,7 +70,7 @@ TEST(DFS, 94){
 }
 
 TEST(DFS, 145){
-  vector<int> argrument{1};
+  vector<optional<int>> argrument{1};
   vector<int> expect{3,2,1};
   TreeNode* tree = buildBinaryTree(argrument);
   tree->right = new TreeNode(2);
@@ -79,7 +80,7 @@ TEST(DFS, 145){
 }
 
 TEST(DFS, 144){
-  vector<int> argrument{1};
+  vector<optional<int>> argrument{1};
   vector<int> expect{1,2,3};
   TreeNode* tree = buildBinaryTree(argrument);
   tree->right = new TreeNode(2);
@@ -87,11 +88,13 @@ TEST(DFS, 144){
   EXPECT_EQ(preorderTraversal(tree), expect);
 }
 TEST(DFS,872){
-  vector<int> initial1{3,5,1,6,2,9,8,nullptr,nullptr,7,4};
-  TreeNode* root1 = buildBinaryTree(initial);
+  vector<optional<int>> initial1{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
+  TreeNode* root1 = buildBinaryTree(initial1);
   
-  TreeNode* root2 = buildBinaryTree(initial);
-
+  vector<optional<int>> initial2{3,5,1,6,7,4,2,nullopt,nullopt,nullopt,nullopt,nullopt,nullopt,9,8};
+  TreeNode* root2 = buildBinaryTree(initial2);
+//  TreeNode* root2 = buildBinaryTree(initial);
+  
   EXPECT_EQ(leafSimilar(root1,root2), true);
 }
 
