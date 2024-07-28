@@ -87,6 +87,7 @@ TEST(DFS, 144){
   tree->right->left = new TreeNode(3);
   EXPECT_EQ(preorderTraversal(tree), expect);
 }
+
 TEST(DFS,872){
   vector<optional<int>> initial1{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
   TreeNode* root1 = buildBinaryTree(initial1);
@@ -96,6 +97,13 @@ TEST(DFS,872){
 //  TreeNode* root2 = buildBinaryTree(initial);
   
   EXPECT_EQ(leafSimilar(root1,root2), true);
+
+
+  vector<optional<int>> initial3{3,5,1,6,7,4,2,nullopt,nullopt,nullopt,nullopt,nullopt,nullopt,9,11,nullopt,nullopt,8,10};
+  TreeNode* root3 = buildBinaryTree(initial3);
+  vector<optional<int>> initial4{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
+  TreeNode* root4 = buildBinaryTree(initial4);
+  EXPECT_EQ(leafSimilar(root3,root4), false);
 }
 
 // Entry point for the test executable

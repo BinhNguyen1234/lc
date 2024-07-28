@@ -17,29 +17,28 @@ TreeNode* buildBinaryTree(vector<optional<int>>& listInt){
     q.push(newNode);
     int i = 0;
     int ListSize = listInt.size();
+
+    ++i;
     while(!q.empty()){
       TreeNode* selectedNode = q.front();
       q.pop();
-      ++i;
       if(i<ListSize){
 	TreeNode* left = nullptr; 
 	if(listInt[i].has_value()){
 	  left = new TreeNode(listInt[i].value());
+	  q.push(left);
 	}
 	selectedNode->left = left;
-	q.push(selectedNode->left);
       }
 
-      
       ++i;
-      if(i<ListSize){
-
+     if(i<ListSize){
 	TreeNode* right = nullptr; 
 	if(listInt[i].has_value()){
 	  right = new TreeNode(listInt[i].value());
+	  q.push(right);
 	}
 	selectedNode->right = right;
-	q.push(selectedNode->right);
       }
     }
     return newNode;

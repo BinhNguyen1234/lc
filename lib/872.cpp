@@ -1,6 +1,7 @@
 #include "../include/872.h"
 #include <stack>
 #include <string>
+#include <iostream>
 using namespace std;
 bool leafSimilar(TreeNode *root1, TreeNode *root2){
   stack<TreeNode*> s1;
@@ -10,7 +11,7 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
   TreeNode* current2 = root2;
   string string1;
   string string2;
-  do {
+  while(!s1.empty()||current1!=nullptr) {
     while(current1!= nullptr){
       if(current1->right){
 	s1.push(current1->right);
@@ -36,10 +37,9 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
 	}	
       }
     }
-
-  }while(!s1.empty());
+  };
   
-  do {
+  while(!s2.empty() || current2 != nullptr) {
     while(current2!= nullptr){
       if(current2->right){
 	s2.push(current2->right);
@@ -53,7 +53,7 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
       string2 += " ";
     }
 
-    while(!s2.empty()){
+    while(!s2.empty()) {
       TreeNode* top = s2.top();
       s2.pop();
       if(top->right){
@@ -65,7 +65,8 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
 	}	
       }
     }
-
-  }while(!s2.empty());
+  };
+  std::cout << string1 << std::endl;
+  std::cout << string2 << std::endl;
   return string1 == string2;
 }
