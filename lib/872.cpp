@@ -21,8 +21,8 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
     }
     
     if(!s1.empty() && s1.top()->right == nullptr){
-      string1 += s1.top()->val ;
-      string1 += " ";
+      std::cout << to_string(s1.top()->val) << std::endl;      
+      string1 = string1.append(to_string(s1.top()->val)).append(";");
     }
 
     while(!s1.empty()){
@@ -31,8 +31,8 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
       if(top->right){
 	if(!s1.empty()&& s1.top()->right == top){
 	  s1.pop();
-	  s1.push(s1.top()->right);
-	  current1 = top;
+	  s1.push(top);
+	  current1 = s1.top()->right;
 	  break;
 	}	
       }
@@ -47,26 +47,21 @@ bool leafSimilar(TreeNode *root1, TreeNode *root2){
       s2.push(current2);
       current2 = current2->left;
     }
-    
     if(!s2.empty() && s2.top()->right == nullptr){
-      string2 += s2.top()->val ;
-      string2 += " ";
+      string2 = string2.append(to_string(s2.top()->val)).append(";");
     }
-
     while(!s2.empty()) {
       TreeNode* top = s2.top();
       s2.pop();
       if(top->right){
 	if(!s2.empty()&& s2.top()->right == top){
 	  s2.pop();
-	  s2.push(s2.top()->right);
-	  current2 = top;
+	  s2.push(top);
+	  current2 = s2.top()->right;
 	  break;
 	}	
       }
     }
   };
-  std::cout << string1 << std::endl;
-  std::cout << string2 << std::endl;
-  return string1 == string2;
+  return string1.compare(string2);
 }

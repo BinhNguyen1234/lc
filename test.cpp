@@ -91,10 +91,8 @@ TEST(DFS, 144){
 TEST(DFS,872){
   vector<optional<int>> initial1{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
   TreeNode* root1 = buildBinaryTree(initial1);
-  
   vector<optional<int>> initial2{3,5,1,6,7,4,2,nullopt,nullopt,nullopt,nullopt,nullopt,nullopt,9,8};
   TreeNode* root2 = buildBinaryTree(initial2);
-//  TreeNode* root2 = buildBinaryTree(initial);
   
   EXPECT_EQ(leafSimilar(root1,root2), true);
 

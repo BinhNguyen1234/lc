@@ -18,10 +18,10 @@ TreeNode* buildBinaryTree(vector<optional<int>>& listInt){
     int i = 0;
     int ListSize = listInt.size();
 
-    ++i;
     while(!q.empty()){
       TreeNode* selectedNode = q.front();
       q.pop();
+      ++i;
       if(i<ListSize){
 	TreeNode* left = nullptr; 
 	if(listInt[i].has_value()){
