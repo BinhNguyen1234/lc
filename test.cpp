@@ -8,6 +8,7 @@
 #include "./include/94.h"
 #include "./include/145.h"
 #include "./include/144.h"
+#include "./include/118.h"
 #include "./include/872.h"
 using namespace std;
 // Sample function to test
@@ -102,6 +103,11 @@ TEST(DFS,872){
   vector<optional<int>> initial4{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
   TreeNode* root4 = buildBinaryTree(initial4);
   EXPECT_EQ(leafSimilar(root3,root4), false);
+}
+
+TEST(DP,118){
+  vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
+  EXPECT_EQ(generate(5), expect);
 }
 
 // Entry point for the test executable
