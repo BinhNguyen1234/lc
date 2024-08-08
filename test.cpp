@@ -10,8 +10,10 @@
 #include "./include/144.h"
 #include "./include/118.h"
 #include "./include/872.h"
+#include "./include/1025.h"
 #include "./include/509.h"
 using namespace std;
+
 // Sample function to test
 //int add(int a, int b) {
   //  return a + b;
@@ -114,6 +116,10 @@ TEST(DP,509){
   EXPECT_EQ(fib(2),1);
   EXPECT_EQ(fib(3),2);
   EXPECT_EQ(fib(4),3);
+}
+TEST(DP,1025){
+ EXPECT_EQ(divisorGame(3),false);
+ EXPECT_EQ(divisorGame(2),true);
 }
 // Entry point for the test executable
 int main(int argc, char **argv) {
