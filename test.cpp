@@ -10,6 +10,7 @@
 #include "./include/144.h"
 #include "./include/118.h"
 #include "./include/872.h"
+#include "./include/509.h"
 using namespace std;
 // Sample function to test
 //int add(int a, int b) {
@@ -109,7 +110,11 @@ TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);
 }
-
+TEST(DP,509){
+  EXPECT_EQ(fib(2),1);
+  EXPECT_EQ(fib(3),2);
+  EXPECT_EQ(fib(4),3);
+}
 // Entry point for the test executable
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
