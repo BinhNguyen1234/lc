@@ -10,6 +10,7 @@
 #include "./include/144.h"
 #include "./include/118.h"
 #include "./include/872.h"
+#include "./include/563.h"
 #include "./include/1025.h"
 #include "./include/509.h"
 using namespace std;
@@ -107,7 +108,19 @@ TEST(DFS,872){
   TreeNode* root4 = buildBinaryTree(initial4);
   EXPECT_EQ(leafSimilar(root3,root4), false);
 }
+TEST(DFS,563){
+  vector<optional<int>> element1{1,2,3};
+  TreeNode* node1 = buildBinaryTree(element1);
+  EXPECT_EQ(findTilt(node1), 1);
 
+  vector<optional<int>> element2{4,2,9,3,5,nullopt,7};
+  TreeNode* node2 = buildBinaryTree(element2);
+  EXPECT_EQ(findTilt(node2), 15);
+
+  vector<optional<int>> element3{21,7,14,1,1,2,2,3,3};
+  TreeNode* node3 = buildBinaryTree(element3);
+  EXPECT_EQ(findTilt(node3), 9);
+}
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);
