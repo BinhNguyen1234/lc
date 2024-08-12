@@ -36,7 +36,7 @@ namespace Solution2 {
   int rightHeight = Height(root->right, answer);
   int diameter = leftHeight + rightHeight;
   answer = max(diameter, answer);
-  return 1 + max(Solution2::Height(root->left, answer), Solution2::Height(root->right,answer));
+  return 1 + max(leftHeight, rightHeight);
   }
   int diameterOfBinaryTree(TreeNode* root){
      int answer = 0;
