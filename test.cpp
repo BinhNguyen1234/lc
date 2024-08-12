@@ -13,6 +13,7 @@
 #include "./include/563.h"
 #include "./include/1025.h"
 #include "./include/509.h"
+#include "./include/543.h"
 using namespace std;
 
 // Sample function to test
@@ -107,6 +108,15 @@ TEST(DFS,872){
   vector<optional<int>> initial4{3,5,1,6,2,9,8,nullopt,nullopt,7,4};
   TreeNode* root4 = buildBinaryTree(initial4);
   EXPECT_EQ(leafSimilar(root3,root4), false);
+}
+TEST(DFS,543){
+  
+  vector<optional<int>> element1{1,2,3,4,5};
+  TreeNode* node1 = buildBinaryTree(element1);
+  EXPECT_EQ(diameterOfBinaryTree(node1),3);
+  vector<optional<int>> element2{1,2};
+  TreeNode* node2 = buildBinaryTree(element2);
+  EXPECT_EQ(diameterOfBinaryTree(node2),1);
 }
 TEST(DFS,563){
   vector<optional<int>> element1{1,2,3};
