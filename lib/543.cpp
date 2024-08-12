@@ -26,3 +26,21 @@ int diameterOfBinaryTree(TreeNode *root){
   return diameter(root, 0);
 }
 
+
+namespace Solution2 {
+  int Height(TreeNode* root,int& answer){
+  if(root == nullptr){
+    return 0;
+  }
+  int leftHeight = Height(root->left, answer);
+  int rightHeight = Height(root->right, answer);
+  int diameter = leftHeight + rightHeight;
+  answer = max(diameter, answer);
+  return 1 + max(Solution2::Height(root->left, answer), Solution2::Height(root->right,answer));
+  }
+  int diameterOfBinaryTree(TreeNode* root){
+     int answer = 0;
+     Height(root, answer);
+     return answer;
+  }
+}

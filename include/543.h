@@ -2,6 +2,10 @@
 #define LeetCode543
 
 #include "./TreeNode.h"
-int diameterOfBinaryTree(TreeNode*);
 
+namespace Solution2{
+  int diameterOfBinaryTree(TreeNode*);
+}
+
+int diameterOfBinaryTree(TreeNode*);
 #endif

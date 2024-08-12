@@ -114,14 +114,17 @@ TEST(DFS,543){
   vector<optional<int>> element1{1,2,3,4,5};
   TreeNode* node1 = buildBinaryTree(element1);
   EXPECT_EQ(diameterOfBinaryTree(node1),3);
+  EXPECT_EQ(Solution2::diameterOfBinaryTree(node1),3);
 
   vector<optional<int>> element2{1,2};
   TreeNode* node2 = buildBinaryTree(element2);
   EXPECT_EQ(diameterOfBinaryTree(node2),1);
+  EXPECT_EQ(Solution2::diameterOfBinaryTree(node2),1);
 
   vector<optional<int>> element3{4,-7,-3,nullopt,nullopt,-9,-3,9,-7,-4,nullopt,6,nullopt,-6,-6,nullopt,nullopt,0,6,5,nullopt,9,nullopt,nullopt,-1,-4,nullopt,nullopt,nullopt,-2};
   TreeNode* node3 = buildBinaryTree(element3);
   EXPECT_EQ(diameterOfBinaryTree(node3),8);
+  EXPECT_EQ(Solution2::diameterOfBinaryTree(node3),8);
 }
 TEST(DFS,563){
   vector<optional<int>> element1{1,2,3};
