@@ -1,12 +1,13 @@
 #include "../include/501.h"
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <math.h>
 // check root->value = root->left->value || root->right> value
 // increase frequently
 int getVal(TreeNode* root, vector<int>& answer,int& currentFrequently ,int& maxFrequently){
   if(root == nullptr){
-    return NAN;
+    return NULL;
   }
   int leftValue = getVal(root->left, answer, currentFrequently, maxFrequently);
   int rightValue = getVal(root->right, answer, currentFrequently ,maxFrequently);
