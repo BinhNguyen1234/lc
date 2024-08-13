@@ -14,6 +14,7 @@
 #include "./include/1025.h"
 #include "./include/509.h"
 #include "./include/543.h"
+#include "./include/501.h"
 using namespace std;
 
 // Sample function to test
@@ -138,6 +139,19 @@ TEST(DFS,563){
   vector<optional<int>> element3{21,7,14,1,1,2,2,3,3};
   TreeNode* node3 = buildBinaryTree(element3);
   EXPECT_EQ(findTilt(node3), 9);
+}
+TEST(DFS, 501){
+  
+  vector<optional<int>> element1{1,nullopt,2,2};
+  TreeNode* node1 = buildBinaryTree(element1);
+  vector<int> expect1{2};
+  EXPECT_EQ(findMode(node1), expect1);
+
+  vector<optional<int>> element2{0};
+  TreeNode* node2 = buildBinaryTree(element2);
+  vector<int> expect2{0};
+  
+  EXPECT_EQ(findMode(node2), expect2);
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
