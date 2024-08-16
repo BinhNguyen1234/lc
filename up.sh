@@ -1,1 +1,1 @@
-git add -A && git commit -m "ok" &&  git push origin master
+echo $0 && git add -A && git commit -m "$0" &&  git push origin master
