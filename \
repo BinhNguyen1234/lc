@@ -48,6 +48,7 @@ vector<int> findMode(TreeNode *root){
 }
 namespace Solution2 {
 vector<int> findMode(TreeNode *root){
+  std::cout  << "------" << std::endl;
   vector<int> answer;
   stack<TreeNode*> s;
   TreeNode* current = root;
@@ -63,13 +64,7 @@ vector<int> findMode(TreeNode *root){
     while(!s.empty()){
       TreeNode* top = s.top();      
       s.pop();
-      if(preIter != nullptr){
-	if(preIter->val == top->val){
-	  currentFrequently++;
-	} else {
-	  currentFrequently = 1;
-	}
-      }
+      std::cout << top->val <<"__" <<currentFrequently << maxFrequentlyCurrent << std::endl;
       if(currentFrequently == maxFrequentlyCurrent ){
 	  answer.push_back(top->val); 
       } else if ( currentFrequently > maxFrequentlyCurrent){
@@ -77,8 +72,15 @@ vector<int> findMode(TreeNode *root){
 	  maxFrequentlyCurrent = currentFrequently;
       }
       
+      if(preIter != nullptr){
+	if(preIter->val == top->val){
+	  currentFrequently++;
+	} else {
+	  currentFrequently = 1;
+	}
+      }
       preIter = top;
-      if(top->right != nullptr){
+    if(top->right != nullptr){
 	root = top->right;
 	break;
       }

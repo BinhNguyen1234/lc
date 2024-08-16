@@ -164,7 +164,7 @@ TEST(DFS, 501){
 
   vector<optional<int>> element5{1,nullopt,2};
   TreeNode* node5 = buildBinaryTree(element5);
-  vector<int> expect5{2,1}; 
+  vector<int> expect5{1,2}; 
   EXPECT_EQ(Solution2::findMode(node5), expect5);
 }
 TEST(DP,118){
