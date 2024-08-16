@@ -1,1 +1,1 @@
-echo $0 && git add -A && git commit -m "$0" &&  git push origin master
+echo $1 && git add -A && git commit -m "$1" &&  git push origin master
