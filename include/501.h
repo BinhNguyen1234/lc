@@ -6,6 +6,8 @@
 using namespace std;
 
 vector<int> findMode(TreeNode* root);
-
+namespace Solution2 {
+  vector<int> findMode(TreeNode* root);
+}
 
 #endif

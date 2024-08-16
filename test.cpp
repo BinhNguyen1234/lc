@@ -145,17 +145,22 @@ TEST(DFS, 501){
   vector<optional<int>> element1{1,nullopt,2,2};
   TreeNode* node1 = buildBinaryTree(element1);
   vector<int> expect1{2};
-  EXPECT_EQ(findMode(node1), expect1);
+  EXPECT_EQ(Solution2::findMode(node1), expect1);
 
   vector<optional<int>> element2{0};
   TreeNode* node2 = buildBinaryTree(element2);
   vector<int> expect2{0};  
-  EXPECT_EQ(findMode(node2), expect2);
+  EXPECT_EQ(Solution2::findMode(node2), expect2);
   
   vector<optional<int>> element3{1,0,1,0,0,1,1,0};
   TreeNode* node3 = buildBinaryTree(element3);
   vector<int> expect3{0,1}; 
-  EXPECT_EQ(findMode(node3), expect3);
+  EXPECT_EQ(Solution2::findMode(node3), expect3);
+
+  vector<optional<int>> element4{2,1,2};
+  TreeNode* node4 = buildBinaryTree(element4);
+  vector<int> expect4{2}; 
+  EXPECT_EQ(Solution2::findMode(node4), expect4);
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
