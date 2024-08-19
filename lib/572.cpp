@@ -3,18 +3,18 @@
 using namespace std;
 
 
-bool isSubTree(TreeNode* root, TreeNode* subRoot){
+bool isTheSame(TreeNode* root, TreeNode* subRoot){
   if(root == nullptr && subRoot == nullptr){
     return true;
   }
-  return root != nullptr && subRoot != nullptr && root->val == subRoot->val && isSubTree(root->left, subRoot->left) && isSubTree(root->right, subRoot->right);
+  return root != nullptr && subRoot != nullptr && root->val == subRoot->val && isTheSame(root->left, subRoot->left) && isTheSame(root->right, subRoot->right);
 }
 
 bool isSubtree(TreeNode *root, TreeNode *subRoot){
   if(root == nullptr){
     return false;
   }
-  bool result = isSubTree(root, subRoot);
+  bool result = isTheSame(root, subRoot);
   return result || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
 }
 
