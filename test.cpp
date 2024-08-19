@@ -15,6 +15,8 @@
 #include "./include/509.h"
 #include "./include/543.h"
 #include "./include/501.h"
+#include "./include/572.h"
+#include "./include/110.h"
 using namespace std;
 
 // Sample function to test
@@ -166,6 +168,48 @@ TEST(DFS, 501){
   TreeNode* node5 = buildBinaryTree(element5);
   vector<int> expect5{1,2}; 
   EXPECT_EQ(Solution2::findMode(node5), expect5);
+}
+TEST(DFS,110){
+  vector<optional<int>> element1{3,9,20,nullopt,nullopt,15,7};
+  TreeNode* node1 = buildBinaryTree(element1);
+  EXPECT_TRUE(isBalanced(node1));
+
+  vector<optional<int>> element2{1,2,2,3,3,nullopt,nullopt,4,4};
+  TreeNode* node2 = buildBinaryTree(element2);
+  EXPECT_FALSE(isBalanced(node2));
+
+  vector<optional<int>> element3;
+  TreeNode* node3 = buildBinaryTree(element3);
+  EXPECT_TRUE(isBalanced(node3));
+
+}
+
+TEST(DFS,572){
+  vector<optional<int>> root1{3,4,5,1,2};
+  vector<optional<int>> subRoot1{4,1,2};
+  TreeNode* node1 = buildBinaryTree(root1);
+  TreeNode* subNode1 = buildBinaryTree(subRoot1);
+  EXPECT_TRUE(isSubtree(node1, subNode1));
+
+
+  vector<optional<int>> root2{3,4,5,1,2,nullopt,nullopt,nullopt,nullopt,0};
+  vector<optional<int>> subRoot2{4,1,2};
+  TreeNode* node2 = buildBinaryTree(root2);
+  TreeNode* subNode2 = buildBinaryTree(subRoot2);
+  EXPECT_FALSE(isSubtree(node2, subNode2));
+
+
+  vector<optional<int>> root3{3,4,5,1,2,nullopt,nullopt,nullopt,nullopt,4,nullopt,1,2};
+  vector<optional<int>> subRoot3{4,1,2};
+  TreeNode* node3 = buildBinaryTree(root3);
+  TreeNode* subNode3 = buildBinaryTree(subRoot3);
+  EXPECT_TRUE(isSubtree(node3, subNode3));
+
+  vector<optional<int>> root4{3,4,5,1,nullopt,2};
+  vector<optional<int>> subRoot4{3,1,2};
+  TreeNode* node4 = buildBinaryTree(root4);
+  TreeNode* subNode4 = buildBinaryTree(subRoot4);
+  EXPECT_FALSE(isSubtree(node4, subNode4));
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
