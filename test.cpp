@@ -17,6 +17,7 @@
 #include "./include/501.h"
 #include "./include/572.h"
 #include "./include/110.h"
+#include "./include/671.h"
 using namespace std;
 
 // Sample function to test
@@ -211,6 +212,22 @@ TEST(DFS,572){
   TreeNode* subNode4 = buildBinaryTree(subRoot4);
   EXPECT_FALSE(isSubtree(node4, subNode4));
 }
+
+TEST(DFS,671){
+
+  vector<optional<int>> root1{2,2,5,nullopt,nullopt,5,7};
+  TreeNode* node1 = buildBinaryTree(root1); 
+  EXPECT_EQ(findSecondMinimumValue(node1),5);
+
+  vector<optional<int>> root2{2,2,2};
+  TreeNode* node2 = buildBinaryTree(root2);
+  EXPECT_EQ(findSecondMinimumValue(node2),-1);
+
+  vector<optional<int>> root3{1,1,3,1,1,3,4,3,1,1,1,3,8,4,8,3,3,1,6,2,1};
+  TreeNode* node3 = buildBinaryTree(root3);
+  EXPECT_EQ(findSecondMinimumValue(node3),2);
+}
+
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);

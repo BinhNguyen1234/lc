@@ -29,6 +29,7 @@ add_library(543 STATIC lib/543.cpp)
 add_library(501 SHARED lib/501.cpp)
 add_library(110 STATIC lib/110.cpp)
 add_library(572 SHARED lib/572.cpp)
+add_library(671 STATIC lib/671.cpp)
 # Entry of of is main cpp, and will build a fie name main.exe or main.so
 add_executable(main main.cpp)
 add_executable(unittest test.cpp)
@@ -46,7 +47,7 @@ target_compile_features(unittest PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE 257 266 463 733 404 637)
 target_link_libraries(main PRIVATE 653 783 BinaryTree 530)
 # Link Google Test to the test executable
-target_link_libraries(unittest 572 110 501 543 563 1025 509 118 144 145 94 872 Binary BinaryTree gtest gtest_main)
+target_link_libraries(unittest 671 572 110 501 543 563 1025 509 118 144 145 94 872 Binary BinaryTree gtest gtest_main)
 # Enable testing and add tests
 enable_testing()
 add_test(NAME unittest  COMMAND test)
