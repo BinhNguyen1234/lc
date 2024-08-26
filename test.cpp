@@ -17,6 +17,7 @@
 #include "./include/501.h"
 #include "./include/572.h"
 #include "./include/110.h"
+#include "./include/1791.h"
 #include "./include/671.h"
 using namespace std;
 
@@ -226,6 +227,12 @@ TEST(DFS,671){
   vector<optional<int>> root3{1,1,3,1,1,3,4,3,1,1,1,3,8,4,8,3,3,1,6,2,1};
   TreeNode* node3 = buildBinaryTree(root3);
   EXPECT_EQ(findSecondMinimumValue(node3),2);
+}
+
+TEST(GRAPH, 1791){
+  vector<vector<int>> test1{{1,2},{2,3},{4,2}};
+  EXPECT_EQ(findCenter(test1), 2);
+
 }
 
 TEST(DP,118){
