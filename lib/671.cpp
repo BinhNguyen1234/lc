@@ -6,23 +6,19 @@ int findSecondMinimumValue(TreeNode *root){
   if(root->left == nullptr){
     return -1;
   }
-  int biggerChild = max(root->left->val, root->right->val);
+  int currentSecondMinium = max(root->left->val, root->right->val);
   if(root->left->val == root->right->val){
-    int temp = min(findSecondMinimumValue(root->left),findSecondMinimumValue(root->right));
-return temp;
-  }else if (root->left->val < root->right->val){
-    int temp = findSecondMinimumValue(root->left);
-    return temp == -1 ? biggerChild : min(biggerChild, temp);
+
+    int left = findSecondMinimumValue(root->left);
+    int right = findSecondMinimumValue(root->right);
+    return (left == -1 ^ right == -1) ? max(left,right): min(left,right);
+  }else if (root->left->val == root->val){
+    int left = findSecondMinimumValue(root->left);
+    return left == -1 ? currentSecondMinium : min(left, currentSecondMinium);
   }else  {
-    int temp = findSecondMinimumValue(root->right);
-    return temp == -1 ? biggerChild : min(biggerChild, temp);
+    int right = findSecondMinimumValue(root->right);
+    return right == -1 ? currentSecondMinium : min(right, currentSecondMinium);
   }
 
-}
-int draft(TreeNode*  root){
-  if(root->left == nullptr){
-    return -1;
-  }
-  return max(root->left->val, root->right->val);
 }
 
