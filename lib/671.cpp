@@ -9,12 +9,11 @@ int findSecondMinimumValue(TreeNode *root){
   int biggerChild = max(root->left->val, root->right->val);
   if(root->left->val == root->right->val){
     int temp = min(findSecondMinimumValue(root->left),findSecondMinimumValue(root->right));
-    return temp == -1 ? biggerChild : min(biggerChild,temp); 
+return temp;
   }else if (root->left->val < root->right->val){
     int temp = findSecondMinimumValue(root->left);
     return temp == -1 ? biggerChild : min(biggerChild, temp);
   }else  {
-
     int temp = findSecondMinimumValue(root->right);
     return temp == -1 ? biggerChild : min(biggerChild, temp);
   }
