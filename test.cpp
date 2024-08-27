@@ -19,6 +19,7 @@
 #include "./include/110.h"
 #include "./include/1791.h"
 #include "./include/671.h"
+#include "./include/1971.h"
 using namespace std;
 
 // Sample function to test
@@ -232,9 +233,12 @@ TEST(DFS,671){
 TEST(GRAPH, 1791){
   vector<vector<int>> test1{{1,2},{2,3},{4,2}};
   EXPECT_EQ(findCenter(test1), 2);
-
 }
 
+TEST(GRAPH, 1971){
+  vector<vector<int>> test1{{0,1},{0,2},{3,5},{5,4},{4,3}};
+  EXPECT_FALSE(validPath(6,test1,0,5));
+}
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);
