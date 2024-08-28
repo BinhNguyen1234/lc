@@ -61,3 +61,10 @@ bool validPath(int n, vector<vector<int> > &edges, int source, int destination){
 }
 }
 
+bool Solution3::validPath(int n, vector<vector<int> > &edges, int source, int destination){
+  vector<int> DSU(n);
+  for(int i = 0; i < n; i++){
+    DSU[i] = i;
+  }
+}
+

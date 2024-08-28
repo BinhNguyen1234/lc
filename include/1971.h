@@ -13,5 +13,10 @@ namespace Solution2 {
 bool validPath(int n, vector<vector<int>>& edges, int source, int destination);
 
 }
+namespace Solution3 {
+
+bool validPath(int n, vector<vector<int>>& edges, int source, int destination);
+
+}
 
 #endif 
