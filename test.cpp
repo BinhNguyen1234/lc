@@ -239,6 +239,7 @@ TEST(GRAPH, 1971){
   vector<vector<int>> test1{{0,1},{0,2},{3,5},{5,4},{4,3}};
   EXPECT_FALSE(validPath(6,test1,0,5));
   EXPECT_FALSE(Solution2::validPath(6,test1,0,5));
+  EXPECT_FALSE(Solution3::validPath(6,test1,0,5));
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};

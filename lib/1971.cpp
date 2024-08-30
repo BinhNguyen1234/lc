@@ -3,6 +3,9 @@
 #include <unordered_map>
 #include <queue>
 #include <stack>
+
+
+
 bool validPath(int n, vector<vector<int>>& edges, int source, int destination){
   vector<vector<int>> graph(n);
   for(auto e: edges){
@@ -25,10 +28,9 @@ bool validPath(int n, vector<vector<int>>& edges, int source, int destination){
 	q.push(node);
       }
     }
-
   }
   return false;
-};
+}
 
 
 
@@ -61,10 +63,29 @@ bool validPath(int n, vector<vector<int> > &edges, int source, int destination){
 }
 }
 
-bool Solution3::validPath(int n, vector<vector<int> > &edges, int source, int destination){
-  vector<int> DSU(n);
-  for(int i = 0; i < n; i++){
+using dsu = vector<int>;
+// parent[] where parent[v] = parentnode
+int findParent(dsu& DSU, int vertex){
+  return DSU[vertex] == vertex ? vertex : findParent(DSU,DSU[vertex]);
+}
+
+dsu createDSU(int numberOfVertex, vector<vector<int>> &edges){
+  dsu DSU(numberOfVertex);
+
+  for(int i = 0; i < numberOfVertex; i++){
     DSU[i] = i;
   }
+  for(auto& edge: edges){
+    int v1 = findParent(DSU, edge[0]);
+    int v2 = findParent(DSU, edge[1]);
+    DSU[v1] = v2;
+  }
+  return DSU;
 }
+
+bool Solution3::validPath(int n, vector<vector<int> > &edges, int source, int destination){
+  dsu DSU = createDSU(n, edges);
+  return findParent(DSU, source) == findParent(DSU, destination);
+}
+
 
