@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <queue>
 #include <stack>
-
+#include <iostream>
 
 
 bool validPath(int n, vector<vector<int>>& edges, int source, int destination){
@@ -83,9 +83,25 @@ dsu createDSU(int numberOfVertex, vector<vector<int>> &edges){
   return DSU;
 }
 
+int findRootOfVertexAndRebuildDsu(vector<int>& dsu, int vertex){
+  return dsu[vertex] == vertex ? vertex : (dsu[vertex] = findRootOfVertexAndRebuildDsu(dsu,dsu[vertex]));
+}
+void buildDsu(vector<int>& dsu, vector<vector<int>>& edges){
+    for(auto &edge : edges){
+      int v1 = findRootOfVertexAndRebuildDsu(dsu,edge[0]);
+      int v2 = findRootOfVertexAndRebuildDsu(dsu,edge[1]);
+      dsu[v1] = v2;
+    }
+}
+
+
 bool Solution3::validPath(int n, vector<vector<int> > &edges, int source, int destination){
-  dsu DSU = createDSU(n, edges);
-  return findParent(DSU, source) == findParent(DSU, destination);
+  vector<int> dsu(n);
+  for(int i = 0; i < n; i++){
+    dsu[i] = i;
+  }
+  buildDsu(dsu, edges);
+  return findRootOfVertexAndRebuildDsu(dsu,source) == findRootOfVertexAndRebuildDsu(dsu,destination);
 }
 
 

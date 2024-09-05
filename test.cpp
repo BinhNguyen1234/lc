@@ -20,6 +20,7 @@
 #include "./include/1791.h"
 #include "./include/671.h"
 #include "./include/1971.h"
+#include "./include/997.h"
 using namespace std;
 
 // Sample function to test
@@ -240,6 +241,15 @@ TEST(GRAPH, 1971){
   EXPECT_FALSE(validPath(6,test1,0,5));
   EXPECT_FALSE(Solution2::validPath(6,test1,0,5));
   EXPECT_FALSE(Solution3::validPath(6,test1,0,5));
+}
+
+TEST(GRAPH, 997){
+  vector<vector<int>> input1 {{1,2}};
+  EXPECT_EQ(findJudge(2, input1), 2);
+  vector<vector<int>> input2 {{1,3},{2,3}};
+  EXPECT_EQ(findJudge(3, input2), 3);
+  vector<vector<int>> input3 {{1,3},{2,3},{3,1}};
+  EXPECT_EQ(findJudge(3, input3), -1);
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
