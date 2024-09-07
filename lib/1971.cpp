@@ -94,14 +94,26 @@ void buildDsu(vector<int>& dsu, vector<vector<int>>& edges){
     }
 }
 
+int findRootInDsuAndRebuild(vector<int>& dsu, int vertex){
+  return dsu[vertex] == vertex ? vertex : findRootOfVertexAndRebuildDsu(dsu, dsu[vertex]);
+}
+
+
 
 bool Solution3::validPath(int n, vector<vector<int> > &edges, int source, int destination){
+  // dsu is disjoin set union, that will have partern like dsu[vertex] = root vertext;
   vector<int> dsu(n);
+  // initial disjoin set union;
   for(int i = 0; i < n; i++){
     dsu[i] = i;
   }
-  buildDsu(dsu, edges);
-  return findRootOfVertexAndRebuildDsu(dsu,source) == findRootOfVertexAndRebuildDsu(dsu,destination);
+  buildDsu(dsu,edges);
+
+  if(dsu[source] == dsu[destination]){
+    return true;
+  }
+
+  return false;
 }
 
 
