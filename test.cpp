@@ -250,6 +250,8 @@ TEST(GRAPH, 997){
   EXPECT_EQ(findJudge(3, input2), 3);
   vector<vector<int>> input3 {{1,3},{2,3},{3,1}};
   EXPECT_EQ(findJudge(3, input3), -1);
+  vector<vector<int>> input4 {{1,3},{1,4},{2,3},{2,4},{4,3}};
+  EXPECT_EQ(findJudge(4, input4), 3);
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
