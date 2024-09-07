@@ -7,6 +7,9 @@ using namespace std;
 
 
 int findJudge(int n, vector<vector<int>>& trust){
+  if(trust.size() == 0){
+    return  1;
+  }
   unordered_map<int,unordered_set<int>> trustclub;
   vector<bool> isTrustSomeone(n + 1, true); 
   for(auto& t: trust){
