@@ -21,4 +21,10 @@ class Node {
     }
 };
 
+namespace Graph {
+
+
+}
+
+
 #endif

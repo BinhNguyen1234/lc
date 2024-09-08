@@ -258,6 +258,10 @@ TEST(GRAPH, 997){
   EXPECT_EQ(findJudge(2, input5), -1);
   EXPECT_EQ(findJudge(1, input5), 1);
 }
+
+TEST(GRAPH, 133){
+
+}
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);
