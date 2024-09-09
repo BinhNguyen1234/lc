@@ -21,6 +21,7 @@
 #include "./include/671.h"
 #include "./include/1971.h"
 #include "./include/997.h"
+#include "include/Graph.h"
 using namespace std;
 
 // Sample function to test
@@ -260,7 +261,9 @@ TEST(GRAPH, 997){
 }
 
 TEST(GRAPH, 133){
-
+  vector<vector<int>> graph1{{2,4},{1,3},{2,4},{1,3}};
+  
+  EXPECT_TRUE(isGraphClone(buildGraph(graph1), buildGraph(graph1)));
 }
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
