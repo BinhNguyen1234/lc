@@ -1,7 +1,8 @@
 #ifndef Graph__
 #define Graph__
 #include <vector>
-
+#include <iostream>
+#include <queue>
 using namespace std;
 class Node {
   public:
@@ -31,25 +32,66 @@ bool isGraphClone(Node* graph1, Node* graph2){
       return false;
     }
   }
-
+  std::cout << "efff";
   return isEqualVal;
 }
 
+void printGraph(Node* node){
+  queue<Node*> q;
+  vector<bool> visited;
+  vector<vector<int>> graph;
+
+  q.push(node);
+  std::cout << "ok";
+  while(!q.empty()){
+    Node* current = q.front();
+    q.pop();
+
+    
+    while(visited.size() < current->val){
+      visited.push_back(false);
+      graph.push_back({});
+    }
+    if(visited[current->val -1] == false){
+
+      for(auto& n : current->neighbors){
+	if(visited[n->val - 1] == false){
+	  q.push(n);
+	}
+	cout << n->val << "-";
+	graph[current->val - 1].push_back(n->val);
+      }
+    }
+    visited[current->val - 1] = true;
+  }
+
+
+  std::cout << "[";
+  for(auto& g : graph){
+    std::cout<< "[";
+      for(auto& a : g){
+ 	std::cout << a << ",";
+     }
+    std::cout << "]";
+  }
+  std::cout << "]";
+}
 
 Node* buildGraph(vector<vector<int>> graph){
-  vector<Node*> AllVertex(graph.size()+1); 
+  
+  vector<Node*> AllVertex(graph.size()); 
+  
 
-  for(int i = 1; i < graph.size() + 1; i++){
-    Node* newNode = new Node(i);
+  for(int i = 0; i < graph.size(); i++){
+    Node* newNode = new Node(i+1);
     AllVertex[i] = newNode;
   }
   for(int i = 0; i < graph.size(); i++){
-    int i1 = i + 1;
     for(auto& vertex : graph[i]){
-      AllVertex[i1]->neighbors.push_back(AllVertex[vertex]);
+      AllVertex[i]->neighbors.push_back(AllVertex[vertex - 1]);
     }
   }
-  return AllVertex[1];
+  return AllVertex[0];
 }
 
 #endif

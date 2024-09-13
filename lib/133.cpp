@@ -3,23 +3,24 @@
 #include <queue>
 using namespace std;
 Node* cloneGraph(Node* node, unordered_map<int, Node*>& cached){
-  Node* newNode = new Node(node->val);
+  Node* newNode = cached[node->val];
+  if(newNode == nullptr){
+    newNode = new Node(node->val);
+    vector<Node*> cloneNeighbors(node->neighbors.size());
 
-  for(auto& n : node->neighbors){
-    if(cached[n->val] == nullptr){
-      cached[n->val] = cloneGraph(n, cached);
-    }
-    newNode->neighbors.push_back(cached[n->val]);
+    newNode->neighbors = cloneNeighbors;
+  }
+  for(int i = 0; i < newNode->neighbors.size(); i++){
+    newNode->neighbors[i] = cloneGraph(node->neighbors[i], cached); 
   }
   return newNode;
 }
+
 Node* cloneGraph(Node* node){
-  unordered_map<int,Node*> map;
   if(node == nullptr){
     return nullptr;
   }
-
-
-  return cloneGraph(node, map);
+  unordered_map<int,Node*> cached;
+  return cloneGraph(node, cached);
 }
 
