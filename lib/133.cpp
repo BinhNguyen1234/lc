@@ -6,11 +6,12 @@ Node* cloneGraph(Node* node, unordered_map<int, Node*>& cached){
   Node* newNode = cached[node->val];
   if(newNode == nullptr){
     newNode = new Node(node->val);
-    newNode->neighbors = vector<Node*>(node->neighbors.size());
     cached[node->val] = newNode;
+  }else {
+    return newNode;
   }
-  for(int i = 0; i < newNode->neighbors.size(); i++){
-     cloneGraph(node, cached); 
+  for(int i = 0; i < node->neighbors.size(); i++){
+     newNode->neighbors.push_back(cloneGraph(node->neighbors[i], cached));
   }
   return newNode;
 }
