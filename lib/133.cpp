@@ -17,7 +17,6 @@ Node* cloneGraph(Node* node, unordered_map<int, Node*>& cached){
 }
 
 Node* cloneGraph(Node* node){
-  std::cout << node->val;
   if(node == nullptr){
     return nullptr;
   }
