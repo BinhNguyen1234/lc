@@ -22,6 +22,7 @@
 #include "./include/1971.h"
 #include "./include/997.h"
 #include "include/Graph.h"
+#include "./include/133.h"
 using namespace std;
 
 // Sample function to test
@@ -262,8 +263,11 @@ TEST(GRAPH, 997){
 
 TEST(GRAPH, 133){
   vector<vector<int>> graph1{{2,4},{1,3},{2,4},{1,3}};
-  printGraph(buildGraph(graph1));
+  auto c = buildGraph(graph1);
+  auto d = cloneGraph(c);
+  std::cout << d->val;
 }
+
 TEST(DP,118){
   vector<vector<int>> expect{{1},{1,1},{1,2,1},{1,3,3,1},{1,4,6,4,1}};
   EXPECT_EQ(generate(5), expect);

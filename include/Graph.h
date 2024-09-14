@@ -23,16 +23,9 @@ class Node {
 
 bool isGraphClone(Node* graph1, Node* graph2){
   bool isEqualVal = graph1->val == graph2->val && graph1->neighbors.size() == graph2->neighbors.size();
-  if(isEqualVal == false){
-    return false;
-  }
   for(int i = 0; i < graph1->neighbors.size(); i++){
     isEqualVal = isEqualVal && isGraphClone(graph1->neighbors[i],graph2->neighbors[i]);
-    if(isEqualVal == false){
-      return false;
-    }
   }
-  std::cout << "efff";
   return isEqualVal;
 }
 
@@ -42,7 +35,6 @@ void printGraph(Node* node){
   vector<vector<int>> graph;
 
   q.push(node);
-  std::cout << "ok";
   while(!q.empty()){
     Node* current = q.front();
     q.pop();
@@ -78,10 +70,7 @@ void printGraph(Node* node){
 }
 
 Node* buildGraph(vector<vector<int>> graph){
-  
   vector<Node*> AllVertex(graph.size()); 
-  
-
   for(int i = 0; i < graph.size(); i++){
     Node* newNode = new Node(i+1);
     AllVertex[i] = newNode;

@@ -6,17 +6,17 @@ Node* cloneGraph(Node* node, unordered_map<int, Node*>& cached){
   Node* newNode = cached[node->val];
   if(newNode == nullptr){
     newNode = new Node(node->val);
-    vector<Node*> cloneNeighbors(node->neighbors.size());
-
-    newNode->neighbors = cloneNeighbors;
+    newNode->neighbors = vector<Node*>(node->neighbors.size());
+    cached[node->val] = newNode;
   }
   for(int i = 0; i < newNode->neighbors.size(); i++){
-    newNode->neighbors[i] = cloneGraph(node->neighbors[i], cached); 
+     cloneGraph(node, cached); 
   }
   return newNode;
 }
 
 Node* cloneGraph(Node* node){
+  std::cout << node->val;
   if(node == nullptr){
     return nullptr;
   }
