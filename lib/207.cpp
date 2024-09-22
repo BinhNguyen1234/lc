@@ -25,7 +25,6 @@ using namespace std;
 	if(status[i] != visited){ 
 	 q.push(i);
 	}
-
 	while(!q.empty()){
 	  int current = q.front();
 	  q.pop();
@@ -35,7 +34,7 @@ using namespace std;
 	    status[current] = processing;
 	  }
 	  for(auto& a : neighborList[current]){
-	    if(status[a] == un_visited){
+	    if(status[a] != visited){
 	      q.push(a);
 	    }
 	  }
