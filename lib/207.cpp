@@ -10,38 +10,39 @@
 using namespace std;
 
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-
-      vector<int> status(numCourses,un_visited);
-      vector<unordered_set<int>> neighborList(numCourses);
-      queue<int> q;
+      vector<int> degree(numCourses,0);
+      vector<unordered_set<int>> graph(numCourses);
 
       for(auto& p : prerequisites){
-	neighborList[p[0]].insert(p[1]);
+	degree[p[1]] += 1;
+	graph[p[0]].insert(p[1]);
       }
-      
 
+      queue<int> q;
 
-      for(int i = 0; i < neighborList.size(); i++){
-	if(status[i] != visited){ 
-	 q.push(i);
-	}
-	while(!q.empty()){
-	  int current = q.front();
-	  q.pop();
-	  if(status[current] == processing){
-	    return false;
-	  }else {
-	    status[current] = processing;
-	  }
-	  for(auto& a : neighborList[current]){
-	    if(status[a] != visited){
-	      q.push(a);
-	    }
-	  }
-	  status[current] = visited;
+      for(int i = 0; i < numCourses; i++){
+	if(degree[i] == 0){
+	  q.push(i);
 	}
       }
-      return true;
+
+      vector<int> topologicalList;
+
+      while(!q.empty()){
+	int current = q.front();
+	q.pop();
+	topologicalList.push_back(current);
+
+	for(auto& g: graph[current]){
+	  degree[g] -= 1;
+	  if(degree[g] == 0){
+	    q.push(g);
+	  }
+	}
+  
+      }
+
+      return topologicalList.size() == numCourses;
     }
       
 
