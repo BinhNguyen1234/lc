@@ -48,14 +48,40 @@ vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
 }
 
 namespace Solution2 {
-
+#define visited 1
+#define processing -1
+#define un_visited 0
+void DFS(vector<vector<int>>& graph, int index, vector<int>& answer, vector<int>& status){
+  if(status[index] == processing || status[index] == visited){
+    return ;
+  } else {
+    status[index] = processing;
+  }
+  for(auto& g : graph[index]){
+    DFS(graph, g, answer, status);
+  }
+  answer.push_back(index);
+  status[index] = visited;
+}
 vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
-  vector<vector<int>> graph(numCourses);
+    vector<int> answer(numCourses);
+
+    vector<int> status(un_visited);
+
+    vector<vector<int>> graph(numCourses);
 
     for(auto& p : prerequisites){
-      graph[p[1]].push_back()
+      graph[p[1]].push_back(p[0]);
     }
-}
+
+    for(int i = 0; i < graph.size(); i++){
+      DFS(graph, i, answer, status);
+    }
+    if(answer.size() != numCourses){
+      answer = vector<int>();
+    }
+    return answer;
 }
 
 
+}
