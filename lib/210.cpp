@@ -34,7 +34,7 @@ vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
     }
   }
   if(answer.size() != numCourses){
-    answer.clear();
+    answer = vector<int>();
   }
   return answer;
 }
