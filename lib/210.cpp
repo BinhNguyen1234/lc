@@ -1,4 +1,4 @@
-#include "../include//210.h"
+#include "../include/210.h"
 #include <vector>
 #include <queue>
 
@@ -36,6 +36,12 @@ vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
   if(answer.size() != numCourses){
     answer = vector<int>();
   }
+  for(int i = 0; i < numCourses; i++){
+    int temp = answer[i];
+    answer[i] = answer[numCourses -1];
+    answer[numCourses - 1]= temp;
+  }
+  answer.reserve();
   return answer;
 }
 
