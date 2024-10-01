@@ -45,5 +45,36 @@ using namespace std;
       return topologicalList.size() == numCourses;
     }
       
+namespace Solution2 {
+  bool DFS(vector<vector<int>> graph, vector<int> &status, int index){
+    if(status[index] == processing){
+      return false;
+    } else if (status[index] == visited){
+      return true;
+    } else {
+      status[index] = processing;
+    }
+    for(auto& g : graph[index]){
+      if(DFS(graph,status,g) == false){
+	return false;
+      }
+    }
+    return true;
+  }
 
+  bool canFinish(int numCourses, vector<vector<int>> &prerequisites){
+    vector<vector<int>> graph(numCourses);
+    for(auto& p : prerequisites){
+      graph[p[1]].push_back(p[0]);
+    }
+    vector<int> status(numCourses,0); 
+    for(int i = 0; i < numCourses; i++){
+      if(DFS(graph,status,i) == false){
+	return false;
+      }
+    }
+    return true;
+  }
+
+}
     
