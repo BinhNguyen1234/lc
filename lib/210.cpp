@@ -51,10 +51,13 @@ namespace Solution2 {
 #define visited 1
 #define processing -1
 #define un_visited 0
-void DFS(vector<vector<int>>& graph, int index, vector<int>& answer, vector<int>& status){
-  if(status[index] == processing || status[index] == visited){
-    return ;
-  } else {
+bool DFS(vector<vector<int>>& graph, int index, vector<int>& answer, vector<int>& status){
+  if(status[index] == processing){
+    return false;
+  } else if (status[index] == visited){
+    return true;
+  } 
+  else {
     status[index] = processing;
   }
   for(auto& g : graph[index]){
@@ -62,11 +65,12 @@ void DFS(vector<vector<int>>& graph, int index, vector<int>& answer, vector<int>
   }
   answer.push_back(index);
   status[index] = visited;
+  return true;
 }
 vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
-    vector<int> answer(numCourses);
+    vector<int> answer;
 
-    vector<int> status(un_visited);
+    vector<int> status(numCourses,un_visited);
 
     vector<vector<int>> graph(numCourses);
 
@@ -75,10 +79,9 @@ vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites){
     }
 
     for(int i = 0; i < graph.size(); i++){
-      DFS(graph, i, answer, status);
-    }
-    if(answer.size() != numCourses){
-      answer = vector<int>();
+     if(DFS(graph, i, answer, status) == false){
+      return {};
+     };
     }
     return answer;
 }
