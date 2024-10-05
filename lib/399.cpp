@@ -26,7 +26,7 @@ double DFS(unordered_map<string,unordered_map<string,double>> graph, string a, s
 
 vector<double> calcEquation(vector<vector<string>> &equations, vector<double> &values, vector<vector<string>> &queries){
 
-  vector<double> answer(queries.size());
+  vector<double> answer;
   unordered_map<string,unordered_map<string,double>> graph;
   for(int i = 0; i < values.size(); i++){
     graph[equations[i][0]][equations[i][1]] = values[i];
