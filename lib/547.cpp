@@ -18,7 +18,9 @@ int findCircleNum(vector<vector<int>>& isConnected) {
   for(int cityY = 0; cityY < isConnected.size(); cityY++){
     for(int cityX = 0; cityX < isConnected[cityY].size(); cityX++){
       if(isConnected[cityY][cityX] == 1){
-	unionGroup[cityX] = findRoot(unionGroup, cityY);
+	int x = findRoot(unionGroup,cityX);
+	int y = findRoot(unionGroup,cityY);
+	unionGroup[y] = x;
       }
     }
   }
