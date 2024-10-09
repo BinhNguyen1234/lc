@@ -7,7 +7,7 @@ int findRoot(vector<int>& unionGroup, int index){
 
 
 vector<int> findRedundantConnection(vector<vector<int>>& edges){
-  vector<int> unionGroup(edges.size());
+  vector<int> unionGroup(edges.size()+ 1);
   vector<int> answer(2);
 
   for(int i = 0; i < unionGroup.size(); i++){
