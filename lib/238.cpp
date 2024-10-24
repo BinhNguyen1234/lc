@@ -9,7 +9,7 @@ vector<int> productExceptSelf(vector<int> &nums){
     leftProduct[i] = leftProduct[i - 1] * nums[i - 1];
   }
   
-  for(int i = size - 2; i >= 0; i++){
+  for(int i = size - 2; i >= 0; i--){
     rightProduct[i] = rightProduct[i + 1] * nums[i + 1];
   }
 
