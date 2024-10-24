@@ -2,15 +2,18 @@
 
 vector<int> productExceptSelf(vector<int> &nums){
   vector<int> answer(nums.size());
-  vector<int> leftProduct(nums.size());
-  vector<int> rightProduct(nums.size());
+  vector<int> leftProduct(nums.size(),1);
+  vector<int> rightProduct(nums.size(),1);
   int size = nums.size();
-  leftProduct[0] = 1;
-  rightProduct[size - 1] = 1;
-  for(int i = 1; i < size - 1; i++){
+  for(int i = 1; i < size; i++){
     leftProduct[i] = leftProduct[i - 1] * nums[i - 1];
     rightProduct[i] = rightProduct[size - 1 - i] * nums[i + 1];
   }
+  
+  for(int i = size - 2; i >= 0; i++){
+    rightProduct[i] = rightProduct[i + 1] * nums[i + 1];
+  }
+
   for(int i = 0; i < answer.size(); i++){
     answer[i] = leftProduct[i] * rightProduct[i];
   }
